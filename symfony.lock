@@ -99,6 +99,9 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
+    "fzaninotto/faker": {
+        "version": "v1.9.2"
+    },
     "laminas/laminas-code": {
         "version": "4.0.0"
     },
@@ -151,6 +154,18 @@
         },
         "files": [
             "./config/packages/sensio_framework_extra.yaml"
+        ]
+    },
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "71599f5b0fdeeeec0fb90e9b17c85e6f5e1350c1"
+        },
+        "files": [
+            "./public/.htaccess"
         ]
     },
     "symfony/asset": {
@@ -379,9 +394,6 @@
     },
     "symfony/process": {
         "version": "v5.2.4"
-    },
-    "symfony/profiler-pack": {
-        "version": "v1.0.5"
     },
     "symfony/property-access": {
         "version": "v5.2.4"
