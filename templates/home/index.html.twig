@@ -1,0 +1,121 @@
+{% extends layout_triangle~'base.html.twig' %}
+
+{% block title %} {{ app_name }} | Accueil {% endblock %}
+
+{% block Home_Slider %}
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>IDevlab 2.0</h1>
+                        <p>Bienvenue sur la nouvelle version d' IDevlab,
+                            contrairement à l'ancienne version, se site réunis mes
+                            différentes applications web, mon portfolio, mon cv et plus encore</p>
+                        <a href="{{ path('app_register') }}" class="btn btn-common">S'INSCRIRE</a>
+                        <a href="{{ path('app_login') }}" class="btn btn-common">CONNEXION</a>
+                    </div>
+                    <img src="{{ asset(assets_file~"/images/home/slider/hill.png") }}" class="slider-hill" alt="slider image">
+                    {#                    <img src="{{ asset(assets_file~"/images/home/slider/house.png") }}" class="slider-house" alt="slider image">#}
+                    {#                    <img src="{{ asset(assets_file~"/images/home/slider/sun.png") }}" class="slider-sun" alt="slider image">#}
+                    <img src="{{ asset(assets_file~"/images/home/slider/birds1.png") }}" class="slider-birds1" alt="slider image">
+                    <img src="{{ asset(assets_file~"/images/home/slider/birds2.png") }}" class="slider-birds2" alt="slider image">
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+{% endblock %}
+
+
+{% block Content %}
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                            <img src="{{ asset("assets/images/home/backpack.png") }}" alt="">
+                        </div>
+                        <h2>My Stuff</h2>
+                        <p>Les utilisateurs peuvent répertorier les équipements de leur parc informatique,
+                            afin d'avoir à porter de main toutes ces informations.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
+                            <img src="{{ asset("assets/images/home/anti-bug.png") }}" alt="">
+                        </div>
+                        <h2>Repports your bug</h2>
+                        <p>Référencer puis consulter comme bon vous semble les bugs rencontrer au cours de vos divers projets.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
+                            <img src="{{ asset("assets/images/home/menu1.png") }}" alt="">
+                        </div>
+                        <h2>What's on the menu</h2>
+                        <p>Consulter diverses recettes a préparé que vous pourrez assigner à un jour et à l'un des 3 repas de la journée.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#services-->
+
+    <section id="action" class="responsive">
+        <div class="vertical-center">
+            <div class="container">
+                <div class="row">
+                    <div class="action take-tour">
+                        <div class="col-sm-7 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                            <h1 class="title">IDevlab et son créateur</h1>
+                            <p>Qu’est-ce donc &amp; Qui est il ?</p>
+                        </div>
+                        <div class="col-sm-5 text-center wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                            <div class="tour-button">
+                                <a href="#" class="btn btn-common">Découvrir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--/#action-->
+
+    <u><h1 style="text-align: center">Quel que mot sur moi ?</h1></u>
+
+    <section id="features">
+        <div class="container">
+            <div class="row">
+                <div class="single-features">
+                    <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <img src="{{ asset("assets/images/Gif/colaborate2.gif") }}" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h2>Expérimenté et Enthousiaste</h2>
+                        <P>Je suis passionné par le développement web & Mobile depuis des années,
+                            et les multiples projets que j'ai entrepris à bien peuvent en témoigner,
+                            je me plais aussi bien dans un environnement solitaire, qu'au sein d'une équipe.</P>
+                    </div>
+                </div>
+                <div class="single-features">
+                    <div class="col-sm-6 col-sm-offset-1 align-right wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h2>Qualifié</h2>
+                        <P>Non seulement diplômé d'un BAC Systèmes Électroniques et Numériques,
+                            BAC +2 services Informatiques aux Organisations et actuellement en cours d'un BAC +4 Concepteurs Développeur d'Applications,
+                            j'ai également à titre personnel et en autodidacte appris diverses language & framework.</P>
+                    </div>
+                    <div class="col-sm-5 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <img src="{{ asset("assets/images/Gif/colaborate3.gif") }}" class="img-responsive" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#features-->
+{% endblock %}

@@ -1,0 +1,38 @@
+<div class="navbar navbar-inverse" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="{{ path('app_home') }}">
+                <h1><img src="{{ asset(assets_file~"/images/logo.png") }}" alt="logo"></h1>
+            </a>
+
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="{{ path('app_home') }}">Accueil</a></li>
+                <li class="dropdown"><a href="#">Applications</a></li>
+                <li class="dropdown"><a href="#">Qui suis-je ?<i class="fa fa-angle-down"></i></a>
+                    <ul role="menu" class="sub-menu">
+                        <li class=""><a href="#">CV</a></li>
+                        <li class=""><a href="#">Stages</a></li>
+                        <li class=""><a href="#">Me contacter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="search">
+            <form role="form">
+                <i class="fa fa-search"></i>
+                <div class="field-toggle">
+                    <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
