@@ -1,0 +1,36 @@
+@import "../add-on/Table/vendor/perfect-scrollbar/perfect-scrollbar.css";
+@import "../add-on/Table/vendor/select2/select2.min.css";
+@import "../add-on/Table/css/main.css";
+@import "../add-on/Table/css/util.css";
+
+
+.f-banner {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.f-container > * {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.f-container .f-search-bar {
+    display: block;
+    border: 2px solid deepskyblue;
+    width: 50%;
+    height: 40px;
+    margin-bottom: 5%;
+    box-shadow: 3px 4px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.f-container .f-search-bar input:focus {
+    border-color: #0e76bc;
+}
+
+.cell100 {
+    text-align: center;
+}
+
+.cell100 img {
+    width: 20%;
+}
