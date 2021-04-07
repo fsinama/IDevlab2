@@ -12,8 +12,9 @@
 <!--===============================================================================================-->
 <script src="{{ asset("assets/add-on/Table/vendor/perfect-scrollbar/perfect-scrollbar.min.js") }}"></script>
 <script>
+    let ps;
     $('.js-pscroll').each(function(){
-        const ps = new PerfectScrollbar(this);
+        ps = new PerfectScrollbar(this);
 
         $(window).on('resize', function(){
             ps.update();

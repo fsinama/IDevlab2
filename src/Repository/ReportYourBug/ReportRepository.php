@@ -19,6 +19,15 @@ class ReportRepository extends ServiceEntityRepository
         parent::__construct($registry, Report::class);
     }
 
+    public function findByFilter(?String $title)
+    {
+        return $this->createQueryBuilder("r")
+            ->andWhere("r.title LIKE :var")
+            ->setParameter("var","%".$title."%")
+            ->getQuery()
+            ->getResult()
+            ;
+    }
     // /**
     //  * @return Report[] Returns an array of Report objects
     //  */

@@ -21,7 +21,7 @@
 
 {%  block Content %}
 <div class="f-container">
-    <input type="text" class="f-search-bar form-controlphp badge" id="recherche-par-titre" placeholder="Recherche" >
+    <input type="text" class="f-search-bar form-control" id="recherche-par-titre" placeholder="Recherche" >
 
 
         <div class="wrap-table100">
@@ -81,12 +81,12 @@
 
                 setTimeout(function(){ },5000)
 
-                var recherche = $(this).val();
+                const recherche = $(this).val();
 
                 if(recherche !== "" && (e.keyCode !==16 && e.keyCode !==17 && e.keyCode !==18)){
                     $.ajax({
                         type: 'GET',
-                        url:    '/wish/ajax/genereated',
+                        url:    '{{ path('ryp_api_list') }}',
                         data: {title: recherche},
                         success: function (data){
                             if(data !== ""){
@@ -95,6 +95,7 @@
                                 table.html(
                                     data
                                 ).fadeIn(10);
+                                ps.update()
 
                             }
                         }
