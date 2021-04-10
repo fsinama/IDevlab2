@@ -21,9 +21,12 @@
 
 {%  block Content %}
 <div class="f-container" id="modal-closed">
-    <input type="text" class="f-search-bar form-control" id="recherche-par-titre" placeholder="Recherche" >
+    <div class="f-filter">
+        <input type="number" class="f-filter-id form-control" id="recherche-par-id" placeholder="ID" >
+        <input type="search" class="f-search-bar form-control" id="recherche-par-titre" placeholder="Recherche" >
+    </div>
 
-        <div class="wrap-table100">
+    <div class="wrap-table100">
             <div class="table100 ver1 m-b-110">
                 <div class="table100-head">
                     <table>
@@ -58,6 +61,8 @@
                                     <td class="cell100 column6">{{ report.openAt|date("d/m/Y") }}</td>
                                     <td class="cell100 column7">{{ report.clausedAt|date("d/m/Y") }}</td>
                                 </tr>
+                                {% else %}
+                                <h2>Il n'y a pas de rapport</h2>
                             {% endfor %}
                         </tbody>
                     </table>
@@ -104,22 +109,25 @@
 {% block script %}
     <script>
 
-        var table = $('#list_reports');
-        var tableDefault = table.html();
+        const table = $('#list_reports');
+        const tableDefault = table.html();
+        const filterTitle = $("#recherche-par-titre");
+        const filterID = $("#recherche-par-id");
 
 
         $(document).ready(function(){
-            $('#recherche-par-titre').keyup(function (e){
+            $('#recherche-par-titre,#recherche-par-id').on('keyup change',function (e){
 
                 setTimeout(function(){ },5000)
 
-                const recherche = $(this).val();
-
-                if(recherche !== "" && (e.keyCode !==16 && e.keyCode !==17 && e.keyCode !==18)){
+                if($(this).val() !== "" && (e.keyCode !==16 && e.keyCode !==17 && e.keyCode !==18)){
                     $.ajax({
                         type: 'GET',
                         url:    '{{ path('ryp_api_list') }}',
-                        data: {title: recherche},
+                        data: {
+                            title: filterTitle.val(),
+                            id: filterID.val()
+                        },
                         success: function (data){
                             if(data !== ""){
 

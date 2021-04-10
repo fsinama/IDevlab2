@@ -5,6 +5,7 @@ namespace App\Repository\ReportYourBug;
 use App\Entity\ReportYourBug\Report;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * @method Report|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,14 +20,24 @@ class ReportRepository extends ServiceEntityRepository
         parent::__construct($registry, Report::class);
     }
 
-    public function findByFilter(?String $title)
+    public function findByFilter(?String $title,?int $id)
     {
-        return $this->createQueryBuilder("r")
-            ->andWhere("r.title LIKE :var")
-            ->setParameter("var","%".$title."%")
+         $qb = $this->createQueryBuilder("r");
+
+         if (!empty($title)) {
+             $qb ->andWhere("r.title LIKE :title")
+                 ->setParameter("title","%".$title."%");
+         }
+
+         if (!empty($id)) {
+             $qb = $this->createQueryBuilder("r")
+                 ->andWhere("r.id = :id")
+                 ->setParameter("id",$id);
+         }
+
+        return $qb
             ->getQuery()
-            ->getResult()
-            ;
+            ->getResult();
     }
     // /**
     //  * @return Report[] Returns an array of Report objects

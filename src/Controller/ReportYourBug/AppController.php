@@ -34,7 +34,10 @@ class AppController extends AbstractController
      */
     public function apiListReportByTitle(ReportRepository $repository,Request $request): Response
     {
-        $reports = $repository->findByFilter($request->get("title"));
+        $reports = $repository->findByFilter(
+            (String) $request->get("title"),
+            (int) $request->get("id")
+        );
 
 
         return $this->render('ReportYourBug/ApiTemplates/listTemplate.html.twig', [
