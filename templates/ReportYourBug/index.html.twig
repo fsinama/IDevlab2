@@ -21,9 +21,27 @@
 
 {%  block Content %}
 <div class="f-container" id="modal-closed">
-    <div class="f-filter">
-        <input type="number" class="f-filter-id form-control" id="recherche-par-id" placeholder="ID" >
-        <input type="search" class="f-search-bar form-control" id="recherche-par-titre" placeholder="Recherche" >
+
+    <div class="f-filter-container">
+        <div class="f-filter-row">
+            <input type="number" class="f-filter-id form-control" id="recherche-par-id" placeholder="ID" min="0">
+            <input type="search" class="f-search-bar form-control" id="recherche-par-titre" placeholder="Recherche" >
+        </div>
+        <div class="f-filter-row">
+            <select id="recherche-par-technology" class="f-filter-technology form-control">
+                <option>-- Tchnologie --</option>
+                {% for technology in technologyList %}
+                    <option value={{ technology.id }}>{{ technology.name }}</option>
+                {% endfor %}
+            </select>
+
+            <select id="recherche-par-type" class="f-filter-type form-control" multiple="multiple">
+                <option>-- Types --</option>
+                {% for type in typesList %}
+                    <option value={{ type.id }}>{{ type.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
     </div>
 
     <div class="wrap-table100">
@@ -45,10 +63,10 @@
                 </div>
 
                 <div class="table100-body js-pscroll">
-                    <table>
+                    <table class="sortable">
                         <tbody id="list_reports">
                             {% for report in reportList %}
-                                <tr class="row100 body">
+                                <tr class="row100 body item">
                                     <td class="cell100 column1">{{ report.id }}</td>
                                     <td class="cell100 column2"><a href="#detailsReport{{ report.id }}">{{ report.title }}</a></td>
                                     <td class="cell100 column3">{{ report.technology.name }}</td>
@@ -113,20 +131,32 @@
         const tableDefault = table.html();
         const filterTitle = $("#recherche-par-titre");
         const filterID = $("#recherche-par-id");
+        const filterTechnology = $('#recherche-par-technology');
+        const filterType = $('#recherche-par-type');
 
 
         $(document).ready(function(){
-            $('#recherche-par-titre,#recherche-par-id').on('keyup change',function (e){
+
+            filterTechnology.select2({
+                placeholder: "Types",
+                allowClear: true
+            });
+            filterType.select2();
+
+            $('#recherche-par-titre,#recherche-par-id,#recherche-par-technology,#recherche-par-type').on('keyup change',function (e){
 
                 setTimeout(function(){ },5000)
 
                 if($(this).val() !== "" && (e.keyCode !==16 && e.keyCode !==17 && e.keyCode !==18)){
+                    
                     $.ajax({
                         type: 'GET',
                         url:    '{{ path('ryp_api_list') }}',
                         data: {
                             title: filterTitle.val(),
-                            id: filterID.val()
+                            id: filterID.val(),
+                            technology: filterTechnology.val(),
+                            types: filterType.val()
                         },
                         success: function (data){
                             if(data !== ""){

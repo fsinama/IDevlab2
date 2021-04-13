@@ -20,7 +20,7 @@ class ReportRepository extends ServiceEntityRepository
         parent::__construct($registry, Report::class);
     }
 
-    public function findByFilter(?String $title,?int $id)
+    public function findByFilter(?String $title,?int $id,?int $technology,?array $type)
     {
          $qb = $this->createQueryBuilder("r");
 
@@ -33,6 +33,18 @@ class ReportRepository extends ServiceEntityRepository
              $qb = $this->createQueryBuilder("r")
                  ->andWhere("r.id = :id")
                  ->setParameter("id",$id);
+         }
+
+         if(!empty($technology)) {
+             $qb = $this->createQueryBuilder("r")
+                 ->andWhere("r.technology = :id")
+                 ->setParameter("id",$technology);
+         }
+
+         if(!empty($type)) {
+             $qb = $this->createQueryBuilder("r")
+                 ->andWhere(":id MEMBER OF r.types")
+                 ->setParameter("id",$type);
          }
 
         return $qb

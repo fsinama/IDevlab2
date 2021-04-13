@@ -117,5 +117,6 @@
     <orderEntry type="library" name="embed" level="application" />
     <orderEntry type="library" name="animate" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="sorttable" level="application" />
   </component>
 </module>

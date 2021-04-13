@@ -3,6 +3,8 @@
 namespace App\Controller\ReportYourBug;
 
 use App\Repository\ReportYourBug\ReportRepository;
+use App\Repository\ReportYourBug\TechnologyRepository;
+use App\Repository\ReportYourBug\TypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,16 +14,22 @@ class AppController extends AbstractController
 {
     /**
      * @Route("/ReportYourBug/Accueil", name="ryp_home")
-     * @param ReportRepository $repository
+     * @param ReportRepository $reportRepository
+     * @param TechnologyRepository $technologyRepository
+     * @param TypeRepository $typeRepository
      * @return Response
      */
-    public function homePage(ReportRepository $repository): Response
+    public function homePage(ReportRepository $reportRepository,TechnologyRepository $technologyRepository,TypeRepository $typeRepository): Response
     {
-        $reports = $repository->findAll();
+        $reports = $reportRepository->findAll();
+        $technologies = $technologyRepository->findAll();
+        $types = $typeRepository->findAll();
 
 
         return $this->render('ReportYourBug/index.html.twig', [
-            "reportList" => $reports
+            "reportList" => $reports,
+            "typesList" => $types,
+            "technologyList" => $technologies
         ]);
     }
 
@@ -36,7 +44,9 @@ class AppController extends AbstractController
     {
         $reports = $repository->findByFilter(
             (String) $request->get("title"),
-            (int) $request->get("id")
+            (int) $request->get("id"),
+            (int) $request->get("technology"),
+            (array) $request->get("types")
         );
 
 
