@@ -1,6 +1,10 @@
 {% extends "layouts/triangle/base.html.twig" %}
 
-{% block title %} RYP | Accueil {% endblock %}
+{% block title %} RYB | Accueil {% endblock %}
+
+{% block head %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/ico/ReportYourBug/Logo.png') }}" />
+{% endblock %}
 
 {% block Home_Slider %}
     <section id="page-breadcrumb" class="f-banner">
@@ -135,7 +139,7 @@
 
                     $.ajax({
                         type: 'GET',
-                        url:    '{{ path('ryp_api_list') }}',
+                        url:    '{{ path('ryb_api_list') }}',
                         data: {
                             title: filterTitle.val(),
                             id: filterID.val(),
