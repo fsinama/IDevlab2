@@ -72,3 +72,16 @@
 .cell100 img {
     width: 20%;
 }
+
+li.f-tag-type {
+    display: inline;
+    border: 1px solid gray;
+    border-radius: 100px;
+    padding: 5px;
+    color: white;
+    background-color: #6c7ae0;
+}
+
+h1.f-modal__title {
+    margin-bottom: 30px;
+}

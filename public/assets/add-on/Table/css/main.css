@@ -119,6 +119,9 @@ th, td {
 
 .column4 {
   width: 14%;
+  white-space: nowrap;
+  overflow: scroll;
+  text-overflow: ellipsis;
 }
 
 .column5 {

@@ -1,9 +1,15 @@
 {% for report in reportList %}
-    <tr class="row100 body">
+    <tr class="row100 body item">
         <td class="cell100 column1">{{ report.id }}</td>
         <td class="cell100 column2"><a href="#detailsReport{{ report.id }}">{{ report.title }}</a></td>
         <td class="cell100 column3">{{ report.technology.name }}</td>
-        <td class="cell100 column4">une liste des types</td>
+        <td class="cell100 column4">
+            <ul class="f-tagList-type">
+                {% for type in report.types %}
+                    <li class="f-tag-type">{{ type.name }}</li>
+                {% endfor %}
+            </ul>
+        </td>
         {% if report.state %}
             <td class="cell100 column5"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUxMi4wMDEgNTEyLjAwMSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyLjAwMSA1MTIuMDAxOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cGF0aCBzdHlsZT0iZmlsbDojQzJGQjNCOyIgZD0iTTUwNS4xODIsMTEzLjc5NWwtNjUuODM2LTY1LjgzNGMtOS4wODktOS4wOS0yMy44MjctOS4wODktMzIuOTE3LDBMMjU2LDE5OC4zOTJsLTg0LjU5NCw4NC41OTQNCglsLTY1LjgzOS02NS44MzljLTQuMzY1LTQuMzY1LTEwLjI4NS02LjgxNy0xNi40NTktNi44MTdjLTYuMTczLDAtMTIuMDk0LDIuNDUyLTE2LjQ1OCw2LjgxOEw2LjgxOCwyODIuOTg4DQoJYy05LjA5LDkuMDktOS4wOSwyMy44MjcsMCwzMi45MTdsMTQ4LjEyNCwxNDguMTMzYzQuMzYzLDQuMzY1LDEwLjI4NSw2LjgxNywxNi40NTgsNi44MTdjNi4xNzQsMCwxMi4wOTQtMi40NTMsMTYuNDU4LTYuODE3DQoJbDY4LjE0MS02OC4xNDFsMjQ5LjE4NC0yNDkuMTg0YzQuMzY1LTQuMzY1LDYuODE4LTEwLjI4NSw2LjgxOC0xNi40NThDNTExLjk5OSwxMjQuMDgxLDUwOS41NDcsMTE4LjE2LDUwNS4xODIsMTEzLjc5NXoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiM5Q0REMDU7IiBkPSJNMTU0Ljk0Miw0NjQuMDM5YzQuMzYzLDQuMzY1LDEwLjI4NSw2LjgxOCwxNi40NTgsNi44MThjNi4xNzQsMCwxMi4wOTQtMi40NTMsMTYuNDU4LTYuODE4DQoJbDY4LjE0MS02OC4xNDFWMTk4LjM5NGwtODQuNTk0LDg0LjU5NGwtNjUuODM5LTY1LjgzOWMtNC4zNjUtNC4zNjUtMTAuMjg1LTYuODE3LTE2LjQ1OC02LjgxN2MtNi4xNzMsMC0xMi4wOTQsMi40NTItMTYuNDU4LDYuODE4DQoJTDYuODE4LDI4Mi45ODhjLTkuMDksOS4wOS05LjA5LDIzLjgyNywwLDMyLjkxN0wxNTQuOTQyLDQ2NC4wMzl6Ii8+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" /></td>
         {% else %}
@@ -13,5 +19,5 @@
         <td class="cell100 column7">{{ report.clausedAt|date("d/m/Y") }}</td>
     </tr>
 {% else %}
-    <h2>Aucun rapport ne correspond aux critère</h2>
+    <h2>Il n'y a pas de rapport</h2>
 {% endfor %}
