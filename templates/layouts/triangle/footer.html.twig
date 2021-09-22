@@ -26,20 +26,20 @@
     <div class="contact-info bottom">
         <h2>Contacts</h2>
         <address>
-            E-mail: <a href="mailto:f.sinama972@gmail.com">f.sinama972@gmail.com</a> <br>
-            Phone: +33 788 18 76 00 <br>
+            E-mail: <a href="mailto:{{ perso_email }}">{{ perso_email }}</a> <br>
+            Phone: {{ perso_mobile_number }}<br>
 {#            Fax: +1 (123) 456 7891 <br>#}
         </address>
 
         <h2>Address</h2>
         <address>
-            France, Nantes <br>
+            {{ perso_adress }} <br>
         </address>
     </div>
 </div>
 <div class="col-md-4 col-sm-12">
     <div class="contact-form bottom">
-        <h2>Send a message</h2>
+        <h2>Envoyer un message</h2>
         <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
             <div class="form-group">
                 <input type="text" name="name" class="form-control" required="required" placeholder="Nom">
