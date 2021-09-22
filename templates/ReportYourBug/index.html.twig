@@ -1,0 +1,170 @@
+{% extends "layouts/triangle/base.html.twig" %}
+
+{% block title %} RYB | Accueil {% endblock %}
+
+{% block head %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/ico/ReportYourBug/Logo.png') }}" />
+{% endblock %}
+
+{% block Home_Slider %}
+    <section id="page-breadcrumb" class="f-banner">
+        <div class="vertical-center sun">
+            <div class="container">
+                <div class="row">
+                    <div class="action">
+                        <div class="col-sm-12">
+                            <h1 class="title">Report your bugs</h1>
+                            <p>Garder une trace de vos erreur pour les résoudres plus vite.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{%  block Content %}
+<div class="f-container" id="modal-closed">
+
+    <div class="f-filter-container">
+        <div class="f-filter-row">
+            <input type="number" class="f-filter-id form-control" id="recherche-par-id" placeholder="ID" min="0">
+            <input type="search" class="f-search-bar form-control" id="recherche-par-titre" placeholder="Recherche" >
+        </div>
+        <div class="f-filter-row">
+            <select id="recherche-par-technology" class="f-filter-technology form-control">
+                <option value=null>-- Tchnologie --</option>
+                {% for technology in technologyList %}
+                    <option value={{ technology.id }}>{{ technology.name }}</option>
+                {% endfor %}
+            </select>
+
+            <select id="recherche-par-type" class="f-filter-type form-control" multiple="multiple">
+                {% for type in typesList %}
+                    <option value={{ type.id }}>{{ type.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="wrap-table100">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">ID</th>
+                            <th class="cell100 column2">Intitulé</th>
+                            <th class="cell100 column3">Technologie</th>
+                            <th class="cell100 column4">Types</th>
+                            <th class="cell100 column5">Etat</th>
+                            <th class="cell100 column6">Ouverture</th>
+                            <th class="cell100 column7">Fermeture</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="table100-body js-pscroll">
+                    <table class="sortable">
+                        <tbody id="list_reports">
+                            {% include "ReportYourBug/ApiTemplates/listTemplate.html.twig" %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% for report in reportList %}
+        <div class="f-modal-container" id="detailsReport{{ report.id }}">
+            <div class="f-modal">
+
+                <div class="f-modal__details">
+                    <h1 class="f-modal__title">{{ report.title }}</h1>
+                    <ul class="f-tagList-type">
+                        {% for type in report.types %}
+                            <li class="f-tag-type">{{ type.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="f-modal__bugInfos">
+                    <div class="f-cause">
+                        <h2>Cause</h2>
+                        <p class="f-modal__text">{{ report.cause }}</p>
+                    </div>
+                    {% if report.state %}
+                        <div class="f-solution">
+                            <h2>Solution</h2>
+                            <p class="f-modal__text">{{ report.solution }}</p>
+                        </div>
+                    {% else %}
+                        <div class="f-not-solution">
+                            <h2>Il n'y a pas encore de solution pour ce bug.</h2>
+                        </div>
+                    {% endif %}
+                </div>
+                <button class="f-modal__btn">Fiche &rarr;</button>
+
+                <a href="" class="f-link-2"></a>
+
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
+
+
+{% block script %}
+    <script>
+
+        const table = $('#list_reports');
+        const tableDefault = table.html();
+        const filterTitle = $("#recherche-par-titre");
+        const filterID = $("#recherche-par-id");
+        const filterTechnology = $('#recherche-par-technology');
+        const filterType = $('#recherche-par-type');
+
+
+        $(document).ready(function(){
+
+            filterTechnology.select2({});
+            filterType.select2({});
+
+            $('#recherche-par-titre,#recherche-par-id,#recherche-par-technology,#recherche-par-type').on('keyup change',function (e){
+
+                setTimeout(function(){ },5000)
+
+                if($(this).val() !== "" && (e.keyCode !==16 && e.keyCode !==17 && e.keyCode !==18)){
+
+                    $.ajax({
+                        type: 'GET',
+                        url:    '{{ path('ryb_api_list') }}',
+                        data: {
+                            title: filterTitle.val(),
+                            id: filterID.val(),
+                            technology: filterTechnology.val(),
+                            types: filterType.val()
+                        },
+                        success: function (data){
+                            if(data !== ""){
+
+                                table.innerHTML = null;
+                                table.html(
+                                    data
+                                ).fadeIn(10);
+                                ps.update()
+
+                            }
+                        }
+                    });
+                }else{
+                    table.html(tableDefault);
+                }
+
+
+            });
+        });
+
+    </script>
+{% endblock %}

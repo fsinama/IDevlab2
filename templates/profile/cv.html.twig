@@ -1,0 +1,391 @@
+{% extends "layouts/cv/base.html.twig" %}
+
+{% block main %}
+    <div class="page-content">
+        <div class="container">
+            <div class="resume-container">
+                <div class="shadow-1-strong bg-white my-5" id="intro">
+                    <div class="bg-info text-white">
+                        <div class="cover bg-image"><img src="{{ asset('cv_design/images/banner2.jpg') }}"/>
+                            <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);backdrop-filter: blur(2px);">
+                                <div class="text-center p-5">
+                                    <div class="avatar p-1"><img class="img-thumbnail shadow-2-strong" src="{{ asset('cv_design/images/avatar.jpg') }}" width="160" height="160"/></div>
+                                    <div class="header-bio mt-3">
+                                        <div data-aos="zoom-in" data-aos-delay="0">
+                                            <h2 class="h1">{{ perso_full_name }}</h2>
+                                            <p>Développeur d'application Web & Mobile</p>
+                                        </div>
+                                        <div class="header-social mb-3 d-print-none" data-aos="zoom-in" data-aos-delay="200">
+                                            <nav role="navigation">
+                                                <ul class="nav justify-content-center">
+                                                    <li class="nav-item"><a target="_blank" class="nav-link" href="{{ link_twitter }}" title="Twitter"><i class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a>
+                                                    </li>
+                                                    <li class="nav-item"><a target="_blank" class="nav-link" href="{{ link_fb }}" title="Facebook"><i class="fab fa-facebook"></i><span class="menu-title sr-only">Facebook</span></a>
+                                                    </li>
+                                                    <li class="nav-item"><a target="_blank" class="nav-link" href="{{ link_insta }}" title="Instagram"><i class="fab fa-instagram"></i><span class="menu-title sr-only">Instagram</span></a>
+                                                    </li>
+                                                    <li class="nav-item"><a target="_blank" class="nav-link" href="{{ link_github }}" title="Github"><i class="fab fa-github"></i><span class="menu-title sr-only">Github</span></a>
+                                                    </li>
+                                                    <li class="nav-item"><a target="_blank" class="nav-link" href="{{ link_linkedin }}" title="LinkedIn"><i class="fab fa-linkedin"></i><span class="menu-title sr-only">LinkedIn</span></a>
+                                                    </li>
+                                                    <li class="nav-item"><a target="_blank" class="nav-link" href="{{ link_site }}" title="Site"><i class="fas fa-link"></i><span class="menu-title sr-only">Site</span></a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                        <div class="d-print-none"><a class="btn btn-outline-light btn-lg shadow-sm mt-1 me-3" href="{{ asset('CV.pdf') }}" data-aos="fade-right" data-aos-delay="700">Télécharger le CV</a><a class="btn btn-info btn-lg shadow-sm mt-1" href="#contact" data-aos="fade-left" data-aos-delay="700">Contactez moi</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow-1-strong bg-white my-5 p-5" id="about">
+                    <div class="about-section">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2 class="h2 fw-light mb-4">À propos de moi</h2>
+                                <p>Salut! Je suis Florian Sinama. Je suis passionné par la conception d’applications Web & Mobile et suis un <strong>développeur back-end qualifié</strong>. Je pratique également le front-end et le design UI/UX sur des outils de conception graphique tel que Photoshop et Adobe Xd. Je suis un apprenant rapide et un travailleur d'équipe qui fait le travail.
+                                <p>Je peux facilement tirer parti des ressources  et rapidement maximiser les livrables en temps opportun.</p>
+                            </div>
+                            <div class="col-md-5 offset-lg-1">
+                                <div class="row mt-2">
+                                    <h2 class="h2 fw-light mb-4">Bio</h2>
+                                    <div class="col-sm-5">
+                                        <div class="pb-2 fw-bolder"><i class="far fa-calendar-alt pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Age</div>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="pb-2">{{ perso_age }}</div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="pb-2 fw-bolder"><i class="far fa-envelope pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Email</div>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="pb-2">{{ perso_email }}</div>
+                                    </div>
+                                    {#div class="col-sm-5">
+                                        <div class="pb-2 fw-bolder"><i class="fab fa-skype pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Skype</div>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="pb-2">username@skype.com</div>
+                                    </div>  #}
+                                    <div class="col-sm-5">
+                                        <div class="pb-2 fw-bolder"><i class="fas fa-phone pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Portable</div>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="pb-2">{{ perso_mobile_number }}</div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="pb-2 fw-bolder"><i class="fas fa-map-marker-alt pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Addresse</div>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="pb-2">{{ perso_adress }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow-1-strong bg-white my-5 p-5" id="skills">
+                    <div class="skills-section">
+                        <h2 class="h2 fw-light mb-4">Compétences Professionnelles</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3"><span class="fw-bolder">PHP</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="100" data-aos-anchor=".skills-section" style="width: 95%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Laravel</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="200" data-aos-anchor=".skills-section" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Symfony</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 75%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">HTML5/CSS3</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 75%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Dart/Flutter</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Java</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Java EE</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 75%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Débutant</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Spring Boot</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 75%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">Débutant</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Java Script</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 75%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Vue JS</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Angular</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-info" role="progressbar" data-aos="zoom-in-right" data-aos-delay="300" data-aos-anchor=".skills-section" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3"><span class="fw-bolder">JetBeans</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400" data-aos-anchor=".skills-section" style="width: 95%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Expert</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Android Studio</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400" data-aos-anchor=".skills-section" style="width: 95%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Git</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400" data-aos-anchor=".skills-section" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">GitHub/GitKraken</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400" data-aos-anchor=".skills-section" style="width: 95%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Expert</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Adobe Photoshop</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400" data-aos-anchor=".skills-section" style="width: 95%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Adobe Illustrator</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="400" data-aos-anchor=".skills-section" style="width: 90%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Débutant</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Adobe Première Pro</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500" data-aos-anchor=".skills-section" style="width: 85%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">Débutant</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Adobe XD</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="600" data-aos-anchor=".skills-section" style="width: 75%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Figma</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500" data-aos-anchor=".skills-section" style="width: 85%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Sketch</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500" data-aos-anchor=".skills-section" style="width: 85%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">Débutant</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><span class="fw-bolder">Methode Agile</span>
+                                    <div class="progress my-2 rounded" style="height: 20px">
+                                        <div class="progress-bar bg-secondary" role="progressbar" data-aos="zoom-in-right" data-aos-delay="500" data-aos-anchor=".skills-section" style="width: 85%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Intermédiaire</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow-1-strong bg-white my-5 p-5" id="experience">
+                    <div class="work-experience-section">
+                        <h2 class="h2 fw-light mb-4">Expérience Professionnelles</h2>
+                        <div class="timeline">
+                            <div class="timeline-card timeline-card-info" data-aos="fade-in" data-aos-delay="0">
+                                <div class="timeline-head px-4 pt-3">
+                                    <div class="h5">Développeur Web & Mobile <span class="text-muted h6">avec Christophe LABLANCHERIE</span></div>
+                                </div>
+                                <div class="timeline-body px-4 pb-4">
+                                    <div class="text-muted text-small mb-3">Mai, 2021 - Juillet 2021</div>
+                                    <div>Réaliser des fonctionnalités majeures au sein d'une application web à destination des indépendants et effectuer une maintenance du code existant.</div>
+                                </div>
+                            </div>
+                            <div class="timeline-card timeline-card-info" data-aos="fade-in" data-aos-delay="200">
+                                <div class="timeline-head px-4 pt-3">
+                                    <div class="h5">Développeur Mobile <span class="text-muted h6">à L'Université dees Antilles</span></div>
+                                </div>
+                                <div class="timeline-body px-4 pb-4">
+                                    <div class="text-muted text-small mb-3">Janvier, 2020 - Février, 2020</div>
+                                    <div>Concevoir une application mobile pour l'université (« Mon UA » dans le portfolio) au service des étudiants et du corps enseignant.</div>
+                                </div>
+                            </div>
+                            <div class="timeline-card timeline-card-info" data-aos="fade-in" data-aos-delay="400">
+                                <div class="timeline-head px-4 pt-3">
+                                    <div class="h5">Développeur Web & Mobile / Testeur <span class="text-muted h6">à BisoftLab</span></div>
+                                </div>
+                                <div class="timeline-body px-4 pb-4">
+                                    <div class="text-muted text-small mb-3">Mai 2019, 2011 - Juin, 2019</div>
+                                    <div>Mettre en oeuvre et tester de multiples fonctionnalités sur divers projets (application web et mobile) au sein de l'entreprise .</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow-1-strong bg-white my-5 p-5" id="education">
+                    <div class="education-section">
+                        <h2 class="h2 fw-light mb-4">Formations</h2>
+                        <div class="timeline">
+                            <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="0">
+                                <div class="timeline-head px-4 pt-3">
+                                    <div class="h5">Maitrise Conception d'application ( Bac +4 ) <span class="text-muted h6">de l'ENI Ecole Informatique de Nantes</span>          </div>
+                                </div>
+                                <div class="timeline-body px-4 pb-4">
+                                    <div class="text-muted text-small mb-3">2020 - 2021</div>
+                                    <div>Éducation : éthique, coordination et planification de projets, développement d'applications et de services. Expérience professionnelle : stage avec un indépendant et développement de deux projets</div>
+                                </div>
+                            </div>
+                            <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="200">
+                                <div class="timeline-head px-4 pt-3">
+                                    <div class="h5">BTS Services Informatiques aux Organisations ( Bac +2 ) <span class="text-muted h6">de l'AMEP Redoute</span>          </div>
+                                </div>
+                                <div class="timeline-body px-4 pb-4">
+                                    <div class="text-muted text-small mb-3">2018 - 2020</div>
+                                    <div>Apprentissage du développement web et mobile ainsi que de la gestion et la mise en place de serveur et la conduite de projet.</div>
+                                </div>
+                            </div>
+                            <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="400">
+                                <div class="timeline-head px-4 pt-3">
+                                    <div class="h5">BAC Systèmes Électroniques et Numériques ( BAC )<span class="text-muted h6">du Lycée Professionnel Chateauboeuf</span>          </div>
+                                </div>
+                                <div class="timeline-body px-4 pb-4">
+                                    <div class="text-muted text-small mb-3">2015 - 2018</div>
+                                    <div>Apprentissage du hardware, l'électronique et le réseau. On y voit également la gestion, la maintenance et la mise en place de réseaux intranet et de serveur.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow-1-strong bg-white my-5 p-5 d-print-none" id="portfolio">
+                    <div class="portfolio-section">
+                        <h2 class="h2 fw-light mb-4">Portfolio</h2>
+                        <div class="row g-0">
+                            <div class="col-md-6"><a href="https://dribbble.com/" target="_blank"><img class="img-fluid" src="{{ asset('cv_design/images/Portfolio-Projet-1.jpeg') }}" width="800" height="500"/></a></div>
+                            <div class="col-md-6 d-flex align-items-center" data-aos="fade-left" data-aos-delay="100">
+                                <div class="m-4 mt-md-2">
+                                    <p class="text-teal text-small">FullStack / HTML / CSS / PHP - Symfony / JavaScript</p>
+                                    <h3>IDevLab 2.0 ( Web )</h3>
+                                    <p class="text-muted">Ce projet est une version améliorer de mon premier site et portfolio, elle a pour objectif de réunir l'ensemble de mes applications web et de décrire chacun de mes projet présent et future.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-0 portfolio-reverse">
+                            <div class="col-md-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+                                <div class="m-4 mt-md-2 text-end">
+                                    <p class="text-teal text-small">Graphic Design / Adobe XD / PHP - Symfony - Laravel / JavaScript</p>
+                                    <h3>MyRepports ( Web )</h3>
+                                    <p class="text-muted">Une application Web me permettant d'archiver mes erreurs, de retrouver tous les bugs que j'ai pu rencontrer et les solutions que j'ai trouvées. Elle me sert aux quotidiens lors de conceptions d'application diveres. Elle était développer en Laravel a l'origine et a été refaite sur IDevlb 2.0 en Symfony</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6"><a href="https://www.behance.net/" target="_blank"><img class="img-fluid" src="{{ asset('cv_design/images/Portfolio-Projet-2.jpeg') }}" width="800" height="500"/></a></div>
+                        </div>
+                        <div class="row g-0">
+                            <div class="col-md-6"><a href="https://dribbble.com/" target="_blank"><img class="img-fluid" src="{{ asset('cv_design/images/Portfolio-Projet-3.jpeg') }}" width="800" height="500"/></a></div>
+                            <div class="col-md-6 d-flex align-items-center" data-aos="fade-left" data-aos-delay="100">
+                                <div class="m-4 mt-md-2">
+                                    <p class="text-teal text-small">Fullstack / HTML / CSS / Dart | Flutter / PHP - Laravel</p>
+                                    <h3>MyBugs ( Mobile )</h3>
+                                    <p class="text-muted">Cette application regroupe les mêmes fonctionnalités ( car elle partage la même API ) que "My Repports" mais permet également de visionner des solutions d'un bug depuis Stack overflow.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-0 portfolio-reverse">
+                        <div class="col-md-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+                            <div class="m-4 mt-md-2 text-end">
+                                <p class="text-teal text-small">PHP - Laravel | JavaScript </p>
+                                <h3>Projeo ( Web )</h3>
+                                <p class="text-muted">Created in 2021, it is still under development. It consists of organizing the management of a business by helping to create quotes, appointment schedules, customers, partner companies, invoices, to manage their time input (i.e., the number of hours worked) and benefits. The application consisted of graphs, diagrams and colour codes to make it easier to use. I loved working on this app for its technology and, because I love developing mobile apps. I also enjoyed working with my tutor on this project.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6"><a href="https://www.behance.net/" target="_blank"><img class="img-fluid" src="{{ asset('cv_design/images/Portfolio-Projet-4.jpeg') }}" width="800" height="500"/></a></div>
+                    </div>
+                </div>
+                <div class="shadow-1-strong bg-white my-5 p-5" id="references">
+                    <div class="reference-section">
+                        <h2 class="h2 fw-light mb-4">References</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="d-flex mb-2">
+                                    <div class="avatar"><img src="{{ asset('cv_design/images/eric belrose.jpeg') }}" width="60" height="60"/></div>
+                                    <div class="header-bio m-3 mb-0">
+                                        <h3 class="h6 mb-1" data-aos="fade-left" data-aos-delay="0">Eric BELROSE</h3>
+                                        <p class="text-muted text-small" data-aos="fade-left" data-aos-delay="100">Chief Executive Officer</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex"><i class="text-secondary fas fa-quote-left"></i>
+                                    <p class="lead mx-2" data-aos="fade-left" data-aos-delay="100">fait preuve d'un professionnalisme exemplaire et est capable de relever des défis. Il apprend rapidement et est un atout pour toute équipe.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex mb-2">
+                                    <div class="avatar"><img src="{{ asset('cv_design/images/christophe lablancherie.jpeg') }}" width="60" height="60"/></div>
+                                    <div class="header-bio m-3 mb-0">
+                                        <h3 class="h6 mb-1" data-aos="fade-left" data-aos-delay="0">Christophe Lablancherie</h3>
+                                        <p class="text-muted text-small" data-aos="fade-left" data-aos-delay="100">Fondateur de Projeo</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex"><i class="text-secondary fas fa-quote-left"></i>
+                                    <p class="lead mx-2" data-aos="fade-left" data-aos-delay="100">J'ai eu le plaisir de collaborer avec Florian pendant 2 mois en qualité de stagiaire. Il est rapide, dynamic et fait un bon équipier.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow-1-strong bg-white my-5 p-5" id="contact">
+                    <div class="contant-section">
+                        <h2 class="h2 fw-light text mb-4">Contact</h2>
+                        <div class="row mb-4">
+                            <div class="col-md-5" data-aos="fade-left" data-aos-delay="200">
+                                <div class="mt-1">
+                                    <div class="h6"><i class="fas fa-phone pe-2 text-muted" style="width:24px;opacity:0.85;"></i> {{ perso_mobile_number }}</div>
+                                    <div class="h6"><i class="far fa-envelope pe-2 text-muted" style="width:24px;opacity:0.85;"></i> {{ perso_email }}</div>
+                                </div>
+                                <div class="mt-5 d-print-none"><form action="{{ path('email_send') }}"
+                                                                     method="POST">
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="name" name="name" class="form-control" required/>
+                                            <label class="form-label" for="name">Nom</label>
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="forwarder" name="forwarder" class="form-control" required/>
+                                            <label class="form-label" for="forwarder">Votre adresse E-mail</label>
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="subject" name="subject" class="form-control" required/>
+                                            <label class="form-label" for="subject">Objet</label>
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <textarea class="form-control" style="resize: none;" id="body" name="body" rows="4" required></textarea>
+                                            <label class="form-label" for="body">Message</label>
+                                        </div>
+                                        <button class="btn btn-info btn-block mb-4" type="submit">Envoyer</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-7 d-print-none" data-aos="zoom-in" data-aos-delay="100"><div style="width: 100%"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Boulevard%20Ernest%20Dalby,%20Nantes,%20France+(My%20Adress)&amp;t=p&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.maps.ie/draw-radius-circle-map/"></a></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+    </div>
+{% endblock %}

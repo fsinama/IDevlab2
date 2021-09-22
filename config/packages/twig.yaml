@@ -1,2 +1,21 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+
+    globals:
+        layout_triangle: "layouts/triangle/"
+        assets_file: "assets"
+        app_name: "IDevlab 2.0"
+        perso_full_name: "Florian Sinama"
+        perso_first_name: "Florian"
+        perso_last_name: "Sinama"
+        perso_mobile_number: "+33 (0)7 88 18 76 00"
+        perso_home_number: "+33 (0)7 88 18 76 00"
+        perso_adress: "France,Dalby Nantes"
+        perso_email: "f.sinama972@gmail.com"
+        perso_age: "21"
+        link_github: "https://github.com/fsinama"
+        link_insta: "#"
+        link_fb: "#"
+        link_twitter: "#"
+        link_linkedin: "https://www.linkedin.com/in/florian-sinama/"
+        link_site: "https://www.idevlab.fr"

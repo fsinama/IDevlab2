@@ -1,0 +1,87 @@
+@import "../add-on/Table/vendor/perfect-scrollbar/perfect-scrollbar.css";
+@import "../add-on/Table/vendor/select2/select2.min.css";
+@import "../add-on/Table/css/main.css";
+@import "../add-on/Table/css/util.css";
+@import "modal.css";
+
+
+.f-banner {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.f-container > * {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.f-filter-container {
+    margin-bottom: 5%;
+}
+
+.f-filter-row {
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.f-filter-row .select2-selection--multiple {
+    border: 2px solid deepskyblue;
+    box-shadow: 3px 4px 5px 1px rgba(0, 0, 0, 0.4);
+    height: 35px;
+}
+
+.f-filter-row .select2-selection--single {
+    border: 2px solid deepskyblue;
+    width: 100%;
+    height: 35px;
+    box-shadow: 3px 4px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.f-filter-row input, .f-filter-row select {
+    display: inline;
+    border: 2px solid deepskyblue;
+    height: 40px;
+    box-shadow: 3px 4px 5px 1px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.f-filter-row .f-search-bar {
+    width: 50%;
+}
+
+.f-filter-row .f-filter-id {
+    width: 5%;
+}
+
+.f-filter-row .f-filter-technology {
+    width: 25%;
+}
+
+.f-filter-row .f-filter-type {
+    width: 25%;
+}
+
+.f-filter-row input:focus, .f-filter-row select:focus {
+    border-color: #0e76bc;
+}
+
+.cell100 {
+    text-align: center;
+}
+
+.cell100 img {
+    width: 20%;
+}
+
+li.f-tag-type {
+    display: inline;
+    border: 1px solid gray;
+    border-radius: 100px;
+    padding: 5px;
+    color: white;
+    background-color: #6c7ae0;
+}
+
+h1.f-modal__title {
+    margin-bottom: 30px;
+}

@@ -1,0 +1,27 @@
+<script type="text/javascript" src="{{ asset(assets_file~"/js/jquery.js") }}"></script>
+<script type="text/javascript" src="{{ asset(assets_file~"/js/bootstrap.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset(assets_file~"/js/lightbox.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset(assets_file~"/js/wow.min.js") }}"></script>
+<script type="text/javascript" src="{{ asset(assets_file~"/js/main.js") }}"></script>
+
+<!--===============================================================================================-->
+<script src="{{ asset("assets/add-on/Table/vendor/bootstrap/js/popper.js") }}"></script>
+<script src="{{ asset("assets/add-on/Table/vendor/bootstrap/js/bootstrap.min.js") }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset("assets/add-on/Table/vendor/select2/select2.min.js") }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset("assets/add-on/Table/vendor/perfect-scrollbar/perfect-scrollbar.min.js") }}"></script>
+<script>
+    let ps;
+    $('.js-pscroll').each(function(){
+        ps = new PerfectScrollbar(this);
+
+        $(window).on('resize', function(){
+            ps.update();
+        })
+    });
+
+
+</script>
+<!--===============================================================================================-->
+<script src="{{ asset("assets/add-on/Table/js/main.js") }}"></script>

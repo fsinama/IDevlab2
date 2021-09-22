@@ -1,0 +1,217 @@
+
+:root {
+    --light: rgb(252, 253, 255);
+    --background: rgb(28, 36, 54);
+    --title: rgb(203, 232, 245);
+    --error: rgb(255, 86, 64);
+}
+/* modal */
+/* =============================================== */
+.f-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    background: hsla(0, 0%, 40%, .6);
+}
+
+/* using :target */
+.f-modal-container:target {
+    display: flex;
+}
+
+.f-modal {
+    width: 80%;
+    height: 90%;
+    padding: 4rem 2rem 2rem 2rem;
+    border-radius: .8rem;
+
+    color: var(--light);
+    background: var(--background);
+    box-shadow: .4rem .4rem 2.4rem .2rem hsla(236, 50%, 50%, 0.3);
+    position: relative;
+
+    overflow: scroll;
+}
+
+.f-modal__details {
+    text-align: center;
+
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid hsla(0, 0%, 100%, .4);
+}
+
+.f-modal__title {
+    font-size: 3.2rem;
+}
+
+.f-modal__description {
+    margin-top: 2rem;
+
+    font-size: 1.6rem;
+    font-style: italic;
+}
+
+.f-modal__text {
+    padding: 0 4rem;
+    margin-bottom: 4rem;
+
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+.f-modal__text::before {
+    content: '';
+
+    position: absolute;
+    top: 0%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+
+    width: 18rem;
+    height: 18rem;
+    border: 1px solid hsla(0, 0%, 100%, .2);
+    border-radius: 100rem;
+
+    pointer-events: none;
+}
+
+.f-modal__btn {
+    padding: 1rem 1.6rem;
+    border: 1px solid hsla(0, 0%, 100%, .4);
+    border-radius: 100rem;
+
+    color: inherit;
+    background: transparent;
+    font-size: 1.4rem;
+    font-family: inherit;
+    letter-spacing: .2rem;
+
+    transition: .2s;
+    cursor: pointer;
+}
+
+.f-modal__btn:hover,
+.f-modal__btn:focus {
+    border-color: hsla(0, 0%, 100%, .6);
+    transform: translateY(-.2rem);
+}
+
+/* links */
+/* =============================================== */
+.f-link-1 {
+    font-size: 1.8rem;
+
+    color: var(--light);
+    background: var(--background);
+    box-shadow: .4rem .4rem 2.4rem .2rem hsla(236, 50%, 50%, 0.3);
+    border-radius: 100rem;
+    padding: 1.4rem 3.2rem;
+
+    transition: .2s;
+}
+
+.f-link-1:hover,
+.f-link-1:focus {
+    transform: translateY(-.2rem);
+    box-shadow: 0 0 4.4rem .2rem hsla(236, 50%, 50%, 0.4);
+}
+
+.f-link-2 {
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid hsla(0, 0%, 100%, .4);
+    border-radius: 100rem;
+
+    color: inherit;
+    font-size: 2.2rem;
+
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: .2s;
+}
+
+.f-link-2::before {
+    content: '×';
+
+    transform: translateY(-.1rem);
+}
+
+.f-link-2:hover,
+.f-link-2:focus {
+    border-color: hsla(0, 0%, 100%, .6);
+    transform: translateY(-.2rem);
+}
+
+/* Second Version Link */
+/* =============================================== */
+.f-second-version-link,
+.f-second-version-link:link {
+    color: hsl(236, 50%, 50%);
+    padding: .8rem 1.6rem .8rem .2rem;
+    border-bottom: 2px solid hsl(236, 50%, 50%);
+
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    position: absolute;
+    top: 4rem;
+    right: 4rem;
+}
+
+.f-second-version-link::after {
+    content: '\2197';
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    font-size: .9em;
+}
+
+.f-abs-site-link {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    color: hsla(0, 0%, 0%, .6);
+    font-size: 1.6rem;
+}
+
+
+.f-modal__bugInfos > div {
+    width: 100%;
+    height: 70%;
+    border-radius: 30px;
+    border: 2px solid var(--light);
+    padding: 2%;
+    margin-bottom: 5%;
+}
+
+.f-modal__details > .f-modal__title {
+    color: var(--light);
+}
+
+.f-modal__bugInfos > div > h2 {
+    color: var(--title);
+}
+
+.f-modal__bugInfos > div.f-not-solution > h2 {
+    text-align: center;
+    text-decoration: underline red;
+    color: var(--error);
+}
