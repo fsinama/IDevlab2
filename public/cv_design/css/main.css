@@ -79,7 +79,7 @@ html, body {
   font-size: 0.85rem; }
 
 .text-teal {
-  color: var(--bs-teal); }
+  color: #C133FF }
 
 footer a:not(.nav-link) {
   color: inherit;
