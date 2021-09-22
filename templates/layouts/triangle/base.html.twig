@@ -9,6 +9,7 @@
             {{ app_name }} | Page
         {% endblock %}
     </title>
+    {% block head %}{% endblock %}
 </head>
 {#-- End Head --#}
 
@@ -190,6 +191,7 @@
 
 {#-- Scripts --#}
     {% include layout_triangle~"script.html.twig" %}
+    {% block script %}{% endblock %}
 {#-- End Scripts --#}
 
 

@@ -13,12 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class AppController extends AbstractController
 {
     /**
+     * @Route("/ReportYourBug/Accueil", name="ryb_home")
      * @param ReportRepository $reportRepository
      * @param TechnologyRepository $technologyRepository
      * @param TypeRepository $typeRepository
      * @return Response
      */
-    #[Route("/ReportYourBug/Accueil", name:'ryb_home')]
     public function homePage(ReportRepository $reportRepository,TechnologyRepository $technologyRepository,TypeRepository $typeRepository): Response
     {
         $reports = $reportRepository->findAll();
@@ -35,11 +35,11 @@ class AppController extends AbstractController
 
 
     /**
+     * @Route("/api/ReportYourBug/reports", name="ryb_api_list")
      * @param ReportRepository $repository
      * @param Request $request
      * @return Response
      */
-    #[Route("/api/ReportYourBug/reports", name:"ryb_api_list")]
     public function apiListReportByTitle(ReportRepository $repository,Request $request): Response
     {
         $reports = $repository->findByFilter(

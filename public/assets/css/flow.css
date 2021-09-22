@@ -85,14 +85,3 @@ li.f-tag-type {
 h1.f-modal__title {
     margin-bottom: 30px;
 }
-
-.f-profile-photo {
-    width: 250px;
-    height: 250px;
-    background-color: black;
-}
-
-.f-cv-banner {
-    height: 20%;
-    width: 100%;
-}

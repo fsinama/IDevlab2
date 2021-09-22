@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
+use App\Entity\ReportYourBug\Report;
+use App\Repository\ReportYourBug\ReportYourBug\ReportYourBug\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -51,6 +54,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $mail;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Report::class, mappedBy="author")
+     */
+    private $reports;
+
+    public function __construct()
+    {
+        $this->reports = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -160,6 +173,36 @@ class User implements UserInterface
     public function setMail(string $mail): self
     {
         $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Report[]
+     */
+    public function getReports(): Collection
+    {
+        return $this->reports;
+    }
+
+    public function addReport(Report $report): self
+    {
+        if (!$this->reports->contains($report)) {
+            $this->reports[] = $report;
+            $report->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReport(Report $report): self
+    {
+        if ($this->reports->removeElement($report)) {
+            // set the owning side to null (unless already changed)
+            if ($report->getAuthor() === $this) {
+                $report->setAuthor(null);
+            }
+        }
 
         return $this;
     }
