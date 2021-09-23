@@ -11,7 +11,7 @@ class CuriculumVitaeController extends AbstractController
     #[Route("/Profile/CV", name:"profile_cv")]
     public function index(): Response
     {
-        return $this->render('profile/cv.html.twig', [
+        return $this->render('Profile/cv.html.twig', [
         ]);
     }
 }
