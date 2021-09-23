@@ -2,14 +2,14 @@
     <div class="container text-center text-lg-left">
         <div class="pt-4 clearfix">
             <a href="{{ path('app_home') }}">
-                <h1><img class="f-mobile-size f-tablette-size" src="{{ asset(assets_file~"/images/logo.png") }}" alt="logo"></h1>
+                <h1><img class="f-mobile-size f-tablette-size" src="{{ asset("assets/images/logo.png") }}" alt="logo"></h1>
             </a>
             <div class="site-nav">
                 <nav role="navigation">
                     <ul class="nav justify-content-center">
                         <li class="nav-item"><a class="nav-link" href="{{ path('app_home') }}" title="Accueil"><span class="menu-title">Accueil</span></a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#" title="Applications"><span class="menu-title">Applications</span></a>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('portfolio_liste') }}" title="Portfolio"><span class="menu-title">Portfolio</span></a>
                         </li>
                     </ul>
                 </nav>

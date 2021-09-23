@@ -3,7 +3,7 @@
 namespace App\Entity\ReportYourBug;
 
 use App\Entity\User;
-use App\Repository\ReportYourBug\ReportYourBug\ReportYourBug\ReportRepository;
+use App\Repository\ReportYourBug\ReportRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
