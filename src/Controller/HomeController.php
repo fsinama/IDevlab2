@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\Portfolio\CategoryRepository;
 use App\Repository\Portfolio\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,12 +16,20 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', []);
     }
 
-    #[Route("/application", name:"app_application")]
-    public function applications_list_page(ProjectRepository $projectRepository): Response
+    #[Route("/portfolio", name:"portfolio_liste")]
+    public function portfolio_list_page(ProjectRepository $projectRepository, CategoryRepository $categoryRepository): Response
     {
-        $allProjects = $projectRepository->findAll();
-        return $this->render('home/appList.html.twig', [
-            "allProjects" => $allProjects,
+        return $this->render('home/portfolioList.html.twig', [
+            "allProjects" => $projectRepository->findAll(),
+            "allCategories" => $categoryRepository->findAll(),
+        ]);
+    }
+
+    #[Route("/portfolio/application/{id}", name:"portfolio_details")]
+    public function portfolio_details_page(ProjectRepository $projectRepository,int $id): Response
+    {
+        return $this->render('home/portfolioDetails.html.twig', [
+            'project' => $projectRepository->find($id),
         ]);
     }
 }

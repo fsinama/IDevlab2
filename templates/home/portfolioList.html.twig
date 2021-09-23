@@ -1,0 +1,77 @@
+{% extends 'layouts/triangle/base.html.twig' %}
+
+{% block title %} {{ app_name }} | Portfolio {% endblock %}
+
+{% block Home_Slider %}
+{% endblock %}
+
+
+{% block Content %}
+    <section id="page-breadcrumb">
+        <div class="vertical-center sun">
+            <div class="container">
+                <div class="row">
+                    <div class="action">
+                        <div class="col-sm-12">
+                            <h1 class="title">Mes applications</h1>
+                            <p>Sois créatif</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#action-->
+
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <ul class="portfolio-filter text-center">
+                    <li><a class="btn btn-default active" href="#" data-filter="*">Tous</a></li>
+                    {%  for category in allCategories %}
+                        <li><a class="btn btn-default" href="#" data-filter=".{{ category.title|lower }}">{{ category.title }}</a></li>
+                    {% endfor %}
+                </ul><!--/#portfolio-filter-->
+
+                <div class="portfolio-items ">
+                    {% for project in allProjects %}
+                        <div class="col-xs-6 col-sm-4 col-md-3 portfolio-item {{ project.categories.first.title|lower }} logos">
+                            <div class="portfolio-wrapper">
+                                <div class="portfolio-single">
+                                    <div class="portfolio-thumb">
+                                        <img src="{{ asset(project.picture) }}" class="img-responsive" alt="">
+                                    </div>
+                                    <div class="portfolio-view">
+                                        <ul class="nav nav-pills">
+                                            <li><a href="{{ path('portfolio_details',{"id" : project.id}) }}"><i class="fa fa-link"></i></a></li>
+                                            <li><a href="{{ asset(project.picture) }}" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="portfolio-info ">
+                                    <h2>{{ project.title }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {# <div class="portfolio-pagination">
+                    <ul class="pagination">
+                        <li><a href="#">left</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li class="active"><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#">8</a></li>
+                        <li><a href="#">9</a></li>
+                        <li><a href="#">right</a></li>
+                    </ul>
+                </div> #}
+            </div>
+        </div>
+    </section>
+    <!--/#projects-->
+{% endblock %}

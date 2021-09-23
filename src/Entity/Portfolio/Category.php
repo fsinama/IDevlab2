@@ -2,16 +2,16 @@
 
 namespace App\Entity\Portfolio;
 
-use App\Repository\Portfolio\SateRepository;
+use App\Repository\Portfolio\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=SateRepository::class)
- * @ORM\Table(name="portfolio_states")
+ * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Table(name="portfolio_categories")
  */
-class Sate
+class Category
 {
     /**
      * @ORM\Id
@@ -26,7 +26,7 @@ class Sate
     private $title;
 
     /**
-     * @ORM\OneToMany(targetEntity=Project::class, mappedBy="State")
+     * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="categories")
      */
     private $projects;
 
@@ -34,6 +34,7 @@ class Sate
     {
         $this->projects = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -64,7 +65,7 @@ class Sate
     {
         if (!$this->projects->contains($project)) {
             $this->projects[] = $project;
-            $project->setState($this);
+            $project->addCategory($this);
         }
 
         return $this;
@@ -73,10 +74,7 @@ class Sate
     public function removeProject(Project $project): self
     {
         if ($this->projects->removeElement($project)) {
-            // set the owning side to null (unless already changed)
-            if ($project->getState() === $this) {
-                $project->setState(null);
-            }
+            $project->removeCategory($this);
         }
 
         return $this;

@@ -36,7 +36,7 @@ class Project
     private $githubRepository;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=500)
      */
     private $description;
 
@@ -56,7 +56,7 @@ class Project
     private $end_date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Sate::class, inversedBy="projects")
+     * @ORM\ManyToOne(targetEntity=State::class, inversedBy="projects")
      * @ORM\JoinColumn(nullable=false)
      */
     private $State;
@@ -69,16 +69,38 @@ class Project
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $image;
+    private $picture;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $secondary_picture;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="projects")
+     */
+    private $categories;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Feature::class, inversedBy="projects")
+     */
+    private $feature;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPublished;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $projectLink;
+
     public function __construct()
     {
         $this->Skills = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+        $this->feature = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -170,12 +192,12 @@ class Project
         return $this;
     }
 
-    public function getState(): ?Sate
+    public function getState(): ?State
     {
         return $this->State;
     }
 
-    public function setState(?Sate $State): self
+    public function setState(?State $State): self
     {
         $this->State = $State;
 
@@ -206,14 +228,14 @@ class Project
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getPicture(): ?string
     {
-        return $this->image;
+        return $this->picture;
     }
 
-    public function setImage(?string $image): self
+    public function setPicture(?string $picture): self
     {
-        $this->image = $image;
+        $this->picture = $picture;
 
         return $this;
     }
@@ -226,6 +248,78 @@ class Project
     public function setSecondaryPicture(?string $secondary_picture): self
     {
         $this->secondary_picture = $secondary_picture;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Feature[]
+     */
+    public function getFeature(): Collection
+    {
+        return $this->feature;
+    }
+
+    public function addFeature(Feature $feature): self
+    {
+        if (!$this->feature->contains($feature)) {
+            $this->feature[] = $feature;
+        }
+
+        return $this;
+    }
+
+    public function removeFeature(Feature $feature): self
+    {
+        $this->feature->removeElement($feature);
+
+        return $this;
+    }
+
+    public function getIsPublished(): ?bool
+    {
+        return $this->isPublished;
+    }
+
+    public function setIsPublished(bool $isPublished): self
+    {
+        $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    public function getProjectLink(): ?string
+    {
+        return $this->projectLink;
+    }
+
+    public function setProjectLink(?string $projectLink): self
+    {
+        $this->projectLink = $projectLink;
 
         return $this;
     }
