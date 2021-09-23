@@ -30,6 +30,11 @@ class Technology
      */
     private $reports;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image_path;
+
     public function __construct()
     {
         $this->reports = new ArrayCollection();
@@ -78,6 +83,18 @@ class Technology
                 $report->setTechnology(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImagePath(): ?string
+    {
+        return $this->image_path;
+    }
+
+    public function setImagePath(?string $image_path): self
+    {
+        $this->image_path = $image_path;
 
         return $this;
     }
