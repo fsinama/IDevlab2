@@ -85,3 +85,35 @@ li.f-tag-type {
 h1.f-modal__title {
     margin-bottom: 30px;
 }
+
+/* smartphone */
+@media only screen and (min-device-width: 0px) and (max-device-width: 768px) {
+    .f-mobile-hide{ display: none !important; }
+    .f-mobile-show{ display: contents !important; }
+    .f-mobile-size{
+        height: 70% !important;
+        width: 70% !important;
+    }
+}
+
+/* Tablette */
+@media only screen and (min-device-width: 768px) and (max-device-width: 992px) {
+    .f-tablette-hide{ display: none !important; }
+    .f-tablette-show{ display: contents !important; }
+    .f-tablette-size{
+        height: 60% !important;
+        width: 60% !important;
+    }
+}
+
+/* Medium PC */
+@media only screen and (min-device-width: 992px) {
+    .f-mdPc-hide{ display: none !important; }
+    .f-mdPc-show{ display: contents !important; }
+}
+
+/* Large PC */
+@media only screen and (min-device-width: 1200px) {
+    .f-lgPc-hide{ display: none !important; }
+    .f-lgPc-show{ display: contents !important; }
+}

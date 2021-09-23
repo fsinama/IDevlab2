@@ -1,16 +1,16 @@
 <div class="navbar navbar-inverse" role="banner">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+            <a class="navbar-brand my-auto" href="{{ path('app_home') }}">
+                <h1><img class="f-mobile-size f-tablette-size" src="{{ asset("assets/images/logo.png") }}" alt="logo"></h1>
+            </a>
+            <button type="button" class="navbar-toggle my-auto" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
-            <a class="navbar-brand" href="{{ path('app_home') }}">
-                <h1><img src="{{ asset(assets_file~"/images/logo.png") }}" alt="logo"></h1>
-            </a>
 
         </div>
         <div class="collapse navbar-collapse">
