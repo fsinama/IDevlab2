@@ -29,13 +29,13 @@
                 <ul class="portfolio-filter text-center">
                     <li><a class="btn btn-default active" href="#" data-filter="*">Tous</a></li>
                     {%  for category in allCategories %}
-                        <li><a class="btn btn-default" href="#" data-filter=".{{ category.title|lower }}">{{ category.title }}</a></li>
+                        <li><a class="btn btn-default" href="#" data-filter=".{{ category.title|lower }}">{{ category.title|replace({'_': ' '}) }}</a></li>
                     {% endfor %}
                 </ul><!--/#portfolio-filter-->
 
                 <div class="portfolio-items ">
                     {% for project in allProjects %}
-                        <div class="col-xs-6 col-sm-4 col-md-3 portfolio-item {{ project.categories.first.title|lower }} logos">
+                        <div class="col-xs-6 col-sm-4 col-md-3 portfolio-item {{ project.showCategories|lower|replace({"/":" "}) }} logos">
                             <div class="portfolio-wrapper">
                                 <div class="portfolio-single">
                                     <div class="portfolio-thumb">

@@ -1,0 +1,30 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends "layouts/triangle/error.html.twig" %}
+
+{% block title %} {{ app_name }} | 403 {% endblock %}
+
+{% block Home_Slider %}
+{% endblock %}
+
+
+{% block Content %}
+    <section id="error-page">
+        <div class="error-page-inner">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="text-center">
+                            <div class="bg-error">
+                                <div class="error-image">
+                                    <img class="img-responsive" src="{{ asset('assets/images/error/403.png') }}" alt="">
+                                </div>
+                            </div>
+                            <h2>Accès interdit</h2>
+                            <p>Vous n'avez pas accès a cette page.</p>
+                            <a href="{{ path('app_home') }}" class="btn btn-error">RETOUR À LA PAGE D'ACCUEIL</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

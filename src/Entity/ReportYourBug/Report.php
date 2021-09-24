@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ReportRepository::class)
- * @ORM\Table(name="ryb_Report")
+ * @ORM\Table(name="ryb_report")
  */
 class Report
 {
@@ -58,7 +58,7 @@ class Report
 
     /**
      * @ORM\ManyToMany(targetEntity=Type::class, inversedBy="reports")
-     * @ORM\JoinTable(name="ryb_Report_Type")
+     * @ORM\JoinTable(name="ryb_report_type")
      */
     private $types;
 

@@ -1,0 +1,31 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends "layouts/triangle/error.html.twig" %}
+
+{% block title %} {{ app_name }} | 404 {% endblock %}
+
+{% block Home_Slider %}
+{% endblock %}
+
+
+{% block Content %}
+    <section id="error-page">
+        <div class="error-page-inner">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="text-center">
+                            <div class="bg-error">
+                                <div class="error-image">
+                                    <img class="img-responsive" src="{{ asset('assets/images/error/404.png') }}" alt="">
+                                </div>
+                            </div>
+                            <h2>
+                                PAGE NON TROUVÉE</h2>
+                            <p>La page que vous recherchez a peut-être été supprimée, si son nom a changé.</p>
+                            <a href="{{ path('app_home') }}" class="btn btn-error">RETOUR À LA PAGE D'ACCUEIL</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

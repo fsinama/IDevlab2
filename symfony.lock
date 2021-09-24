@@ -463,9 +463,6 @@
     "symfony/serializer": {
         "version": "v5.2.4"
     },
-    "symfony/serializer-pack": {
-        "version": "v1.0.4"
-    },
     "symfony/service-contracts": {
         "version": "v2.2.0"
     },
@@ -525,9 +522,6 @@
             "./templates/base.html.twig"
         ]
     },
-    "symfony/twig-pack": {
-        "version": "v1.0.1"
-    },
     "symfony/validator": {
         "version": "4.3",
         "recipe": {
@@ -569,6 +563,9 @@
     },
     "twig/extra-bundle": {
         "version": "v3.3.0"
+    },
+    "twig/intl-extra": {
+        "version": "v3.3.3"
     },
     "twig/twig": {
         "version": "v3.3.0"

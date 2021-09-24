@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+{#-- Head--#}
+<head>
+    {% include "layouts/triangle//head.html.twig" %}
+    <title>
+        {% block title %}
+            {{ app_name }} | Page
+        {% endblock %}
+    </title>
+    {% block head %}{% endblock %}
+</head>
+{#-- End Head --#}
+
+<body>
+
+{#-- Header --#}
+<header id="header">
+    {#-- Social Space --#}
+
+    {% include "layouts/triangle//social.html.twig" %}
+
+    {#-- End Social Space --#}
+
+    {% include "layouts/triangle//header.html.twig" %}
+
+</header>
+
+{% block Content %}
+{% endblock %}
+
+
+{% include "layouts/triangle/script.html.twig" %}
+</body>
+</html>
