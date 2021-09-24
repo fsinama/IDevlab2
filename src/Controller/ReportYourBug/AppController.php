@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route("/ReportYourBug")]
 class AppController extends AbstractController
 {
     /**
@@ -18,7 +19,7 @@ class AppController extends AbstractController
      * @param TypeRepository $typeRepository
      * @return Response
      */
-    #[Route("/reportYourBug/Accueil", name:"ryb_home")]
+    #[Route("/Accueil", name:"ryb_home")]
     public function homePage(ReportRepository $reportRepository,TechnologyRepository $technologyRepository,TypeRepository $typeRepository): Response
     {
         $reports = $reportRepository->findAll();
@@ -50,7 +51,7 @@ class AppController extends AbstractController
         );
 
 
-        return $this->render('ReportYourBug/ApiTemplates/listTemplate.html.twig', [
+        return $this->render('reportYourBug/ApiTemplates/listTemplate.html.twig', [
             "reportList" => $reports
         ]);
     }

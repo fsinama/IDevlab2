@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\ReportYourBug\ReportYourBug\ReportYourBug\User;
+use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\LoginAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -65,7 +65,7 @@ class SecurityController extends AbstractController
             );
         }
 
-        return $this->render('Security/register.html.twig', [
+        return $this->render('security/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
