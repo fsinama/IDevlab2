@@ -31,17 +31,17 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="project-name overflow">
-                        <h2 class="bold">{{ project.title}} </h2>
+                        <h2 class="bold">{{ project.title}} ( {{ project.categories.first.title|replace({'_':' '}) }} ) </h2>
                         <ul class="nav navbar-nav navbar-default">
                             <li><a href="#"><i class="fa fa-clock-o"></i>February11,2014</a></li>
-                            <li><a href="#"><i class="fa fa-tag"></i>{{ project.categories.first.title }}</a></li>
+                            <li><a href="#"><i class="fa fa-tag"></i>{{ project.categories.first.title|replace({'_': ' '}) }}</a></li>
                         </ul>
                     </div>
                     <div class="project-info overflow">
                         <h3>Description du projet</h3>
                         <p>{{ project.description }}</p>
                         <ul class="elements">
-                            {% for feature in project.feature %}
+                            {% for feature in project.features %}
                                 <li><i class="fa fa-angle-right"></i> <strong>{{ feature.title }}</strong> : <p>{{ feature.description }}</p></li>
                             {% endfor %}
                         </ul>
@@ -51,7 +51,7 @@
                         <h3>Compétences : </h3>
                         <ul class="nav navbar-nav navbar-default">
                             {% for skill in project.skills %}
-                                <li><a href="#"><i class="fa fa-check-square"></i>{{ skill.title }}</a></li>
+                                <li><a href="#"><i class="fa fa-check-square"></i>{{ skill.title|replace({'_': ' '}) }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -66,7 +66,7 @@
                     {% endif %}
                     {% if project.isPublished %}
                         <div class="live-preview">
-                            <a href="#" class="btn btn-common uppercase">Aperçu en direct</a>
+                            <a href="{{ path(project.projectLink) }}" class="btn btn-common uppercase">Aperçu en direct</a>
                         </div>
                     {% endif %}
                 </div>

@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
- * @ORM\Table(name="idevlab_User")
+ * @ORM\Table(name="idevlab_user")
  */
 class User implements UserInterface
 {
