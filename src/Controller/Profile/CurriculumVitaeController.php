@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CurriculumVitaeController extends AbstractController
 {
-    #[Route("/Profile/CV", name:"profile_cv")]
+    #[Route("/profile/CV", name:"profile_cv")]
     public function index(ProjectRepository $repository): Response
     {
 
