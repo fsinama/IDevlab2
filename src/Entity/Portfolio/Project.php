@@ -63,6 +63,7 @@ class Project
 
     /**
      * @ORM\ManyToMany(targetEntity=Skill::class, inversedBy="projects")
+     * @ORM\JoinTable(name="portfolio_project_skill")
      */
     private $Skills;
 
@@ -78,13 +79,16 @@ class Project
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="projects")
+     * @ORM\JoinTable(name="portfolio_project_category")
      */
     private $categories;
 
     /**
      * @ORM\ManyToMany(targetEntity=Feature::class, inversedBy="projects")
+     * @ORM\JoinTable(name="portfolio_project_feature")
+     * @ORM\JoinTable
      */
-    private $feature;
+    private $features;
 
     /**
      * @ORM\Column(type="boolean")
@@ -100,7 +104,7 @@ class Project
     {
         $this->Skills = new ArrayCollection();
         $this->categories = new ArrayCollection();
-        $this->feature = new ArrayCollection();
+        $this->features = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -279,15 +283,15 @@ class Project
     /**
      * @return Collection|Feature[]
      */
-    public function getFeature(): Collection
+    public function getFeatures(): Collection
     {
-        return $this->feature;
+        return $this->features;
     }
 
     public function addFeature(Feature $feature): self
     {
-        if (!$this->feature->contains($feature)) {
-            $this->feature[] = $feature;
+        if (!$this->features->contains($feature)) {
+            $this->features[] = $feature;
         }
 
         return $this;
@@ -295,7 +299,7 @@ class Project
 
     public function removeFeature(Feature $feature): self
     {
-        $this->feature->removeElement($feature);
+        $this->features->removeElement($feature);
 
         return $this;
     }

@@ -86,6 +86,7 @@ h1.f-modal__title {
     margin-bottom: 30px;
 }
 
+
 /* smartphone */
 @media only screen and (min-device-width: 0px) and (max-device-width: 768px) {
     .f-mobile-hide{ display: none !important; }
