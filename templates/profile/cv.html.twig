@@ -45,23 +45,25 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <h2 class="h2 fw-light mb-4">À propos de moi</h2>
-                                <p>Salut! Je suis Florian Sinama. Je suis passionné par la conception d’applications Web & Mobile et suis un <strong>développeur back-end qualifié</strong>. Je pratique également le front-end et le design UI/UX sur des outils de conception graphique tel que Photoshop et Adobe Xd. Je suis un apprenant rapide et un travailleur d'équipe qui fait le travail.
+                                <p>Salut! Je suis Florian Sinama. Je suis passionné par la conception d’applications Web & Mobile et suis un <strong>développeur back-end qualifié</strong>.
+                                    Je pratique également le front-end et le design UI/UX sur des outils de conception graphique tels que Photoshop et Adobe Xd. J'apprend vite et je suis
+                                    capable de travailler aussi bien en autonomie qu'en équipe.
                                 <p>Je peux facilement tirer parti des ressources  et rapidement maximiser les livrables en temps opportun.</p>
                             </div>
                             <div class="col-md-5 offset-lg-1">
                                 <div class="row mt-2">
                                     <h2 class="h2 fw-light mb-4">Bio</h2>
                                     <div class="col-sm-5">
-                                        <div class="pb-2 fw-bolder"><i class="far fa-calendar-alt pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Age</div>
+                                        <div class="pb-2 fw-bolder"><i class="far fa-calendar-alt pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Âge</div>
                                     </div>
                                     <div class="col-sm-7">
-                                        <div class="pb-2">{{ perso_age }}</div>
+                                        <div class="pb-2">{{ ('now'|date('Y')) - perso_birthdate|date("Y") }} ans</div>
                                     </div>
                                     <div class="col-sm-5">
                                         <div class="pb-2 fw-bolder"><i class="far fa-envelope pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Email</div>
                                     </div>
                                     <div class="col-sm-7">
-                                        <div class="pb-2">{{ perso_email }}</div>
+                                        <div class="pb-2"><a href="mailto:{{ perso_email }}">{{ perso_email }}</a></div>
                                     </div>
                                     {#div class="col-sm-5">
                                         <div class="pb-2 fw-bolder"><i class="fab fa-skype pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Skype</div>
@@ -73,10 +75,10 @@
                                         <div class="pb-2 fw-bolder"><i class="fas fa-phone pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Portable</div>
                                     </div>
                                     <div class="col-sm-7">
-                                        <div class="pb-2">{{ perso_mobile_number }}</div>
+                                        <div class="pb-2"><a class="" href="tel:{{ perso_mobile_number }}">{{ perso_mobile_number }}</a></div>
                                     </div>
                                     <div class="col-sm-5">
-                                        <div class="pb-2 fw-bolder"><i class="fas fa-map-marker-alt pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Addresse</div>
+                                        <div class="pb-2 fw-bolder"><i class="fas fa-map-marker-alt pe-2 text-muted" style="width:24px;opacity:0.85;"></i> Adresse</div>
                                     </div>
                                     <div class="col-sm-7">
                                         <div class="pb-2">{{ perso_adress }}</div>
@@ -209,7 +211,7 @@
                 </div>
                 <div class="shadow-1-strong bg-white my-5 p-5" id="experience">
                     <div class="work-experience-section">
-                        <h2 class="h2 fw-light mb-4">Expérience Professionnelles</h2>
+                        <h2 class="h2 fw-light mb-4">Expériences Professionnelles</h2>
                         <div class="timeline">
                             <div class="timeline-card timeline-card-info" data-aos="fade-in" data-aos-delay="0">
                                 <div class="timeline-head px-4 pt-3">
@@ -247,29 +249,30 @@
                         <div class="timeline">
                             <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="0">
                                 <div class="timeline-head px-4 pt-3">
-                                    <div class="h5">Maitrise Conception d'application ( Bac +4 ) <span class="text-muted h6">de l'ENI Ecole Informatique de Nantes</span>          </div>
+                                    <div class="h5">Maitrise Conception d'application (Bac +4) <span class="text-muted h6">de l'ENI Ecole Informatique de Nantes</span>          </div>
                                 </div>
                                 <div class="timeline-body px-4 pb-4">
                                     <div class="text-muted text-small mb-3">2020 - 2021</div>
-                                    <div>Éducation : éthique, coordination et planification de projets, développement d'applications et de services. Expérience professionnelle : stage avec un indépendant et développement de deux projets</div>
+                                    <div>On ma enseigné l'éthique, la coordination et la planification de projets ainsi que le développement d'applications et de services. <br/>
+                                        Au cours d'une expérience professionnelle, j'ai réalisé un stage avec un indépendant et développé de deux projets.</div>
                                 </div>
                             </div>
                             <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="200">
                                 <div class="timeline-head px-4 pt-3">
-                                    <div class="h5">BTS Services Informatiques aux Organisations ( Bac +2 ) <span class="text-muted h6">de l'AMEP Redoute</span>          </div>
+                                    <div class="h5">BTS Services Informatiques aux Organisations (Bac +2) <span class="text-muted h6">de l'AMEP Redoute</span>          </div>
                                 </div>
                                 <div class="timeline-body px-4 pb-4">
                                     <div class="text-muted text-small mb-3">2018 - 2020</div>
-                                    <div>Apprentissage du développement web et mobile ainsi que de la gestion et la mise en place de serveur et la conduite de projet.</div>
+                                    <div>J'ai appris le développement web et mobile, la gestion et la mise en place de serveur ainsi que la conduite de projet.</div>
                                 </div>
                             </div>
                             <div class="timeline-card timeline-card-success" data-aos="fade-in" data-aos-delay="400">
                                 <div class="timeline-head px-4 pt-3">
-                                    <div class="h5">BAC Systèmes Électroniques et Numériques ( BAC )<span class="text-muted h6">du Lycée Professionnel Chateauboeuf</span>          </div>
+                                    <div class="h5">BAC Systèmes Électroniques et Numériques (BAC) <span class="text-muted h6">du Lycée Professionnel Chateauboeuf</span>          </div>
                                 </div>
                                 <div class="timeline-body px-4 pb-4">
                                     <div class="text-muted text-small mb-3">2015 - 2018</div>
-                                    <div>Apprentissage du hardware, l'électronique et le réseau. On y voit également la gestion, la maintenance et la mise en place de réseaux intranet et de serveur.</div>
+                                    <div>J'ai appris l'hardware, l'électronique et le réseau. On y voit également la gestion, la maintenance et la mise en place de réseaux intranet et de serveur.</div>
                                 </div>
                             </div>
                         </div>
@@ -288,7 +291,7 @@
                             <div class="col-md-6 d-flex align-items-center" data-aos="fade-left" data-aos-delay="100">
                                 <div class="m-4 mt-md-2">
                                     <p class="text-teal text-small">{{ project.showSkills }}</p>
-                                    <h3>{{ project.title }} ( {{ project.categories.first.title|replace({'_':' '}) }} )</h3>
+                                    <h3>{{ project.title }} ({{ project.categories.first.title|replace({'_':' '}) }})</h3>
                                     <p class="text-muted"> {{ project.description }}</p>
                                 </div>
                             </div>
@@ -299,14 +302,14 @@
                         {% endfor %}
                 <div class="shadow-1-strong bg-white my-5 p-5" id="references">
                     <div class="reference-section">
-                        <h2 class="h2 fw-light mb-4">References</h2>
+                        <h2 class="h2 fw-light mb-4">Références</h2>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="d-flex mb-2">
                                     <div class="avatar"><img src="{{ asset('assets/images/profile/eric belrose.jpeg') }}" width="60" height="60" alt="photo eric belrose"/></div>
                                     <div class="header-bio m-3 mb-0">
                                         <h3 class="h6 mb-1" data-aos="fade-left" data-aos-delay="0">Eric BELROSE</h3>
-                                        <p class="text-muted text-small" data-aos="fade-left" data-aos-delay="100">Chief Executive Officer</p>
+                                        <p class="text-muted text-small" data-aos="fade-left" data-aos-delay="100">Chef de la direction</p>
                                     </div>
                                 </div>
                                 <div class="d-flex"><i class="text-secondary fas fa-quote-left"></i>
@@ -322,7 +325,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex"><i class="text-secondary fas fa-quote-left"></i>
-                                    <p class="lead mx-2" data-aos="fade-left" data-aos-delay="100">J'ai eu le plaisir de collaborer avec Florian pendant 2 mois en qualité de stagiaire. Il est rapide, dynamic et fait un bon équipier.</p>
+                                    <p class="lead mx-2" data-aos="fade-left" data-aos-delay="100">J'ai eu le plaisir de collaborer avec Florian pendant 2 mois en qualité de stagiaire. Il est rapide, dynamique et fait un bon équipier.</p>
                                 </div>
                             </div>
                         </div>

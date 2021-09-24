@@ -13,7 +13,7 @@ twig:
         perso_home_number: "+33 (0)7 88 18 76 00"
         perso_adress: "France,Dalby Nantes"
         perso_email: "f.sinama972@gmail.com"
-        perso_age: "21"
+        perso_birthdate: "05/12/2000"
         link_github: "https://github.com/fsinama"
         link_insta: "#"
         link_fb: "#"
