@@ -86,6 +86,13 @@ h1.f-modal__title {
     margin-bottom: 30px;
 }
 
+.f-image-size-md {
+    width: 50% !important;
+    height: 50% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 /* smartphone */
 @media only screen and (min-device-width: 0px) and (max-device-width: 768px) {

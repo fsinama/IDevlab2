@@ -6,10 +6,10 @@
             <div class="resume-container">
                 <div class="shadow-1-strong bg-white my-5" id="intro">
                     <div class="bg-info text-white">
-                        <div class="cover bg-image"><img src="{{ asset('assets/images/banner2.jpg') }}" alt="bannière"/>
+                        <div class="cover bg-image"><img src="{{ asset('assets/images/banner/banner2.jpg') }}" alt="bannière"/>
                             <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);backdrop-filter: blur(2px);">
                                 <div class="text-center p-5">
-                                    <div class="avatar p-1"><img class="img-thumbnail shadow-2-strong" src="{{ asset('assets/images/avatar.jpg') }}" width="160" height="160" alt="photo de profile"/></div>
+                                    <div class="avatar p-1"><img class="img-thumbnail shadow-2-strong" src="{{ asset('assets/images/profile/avatar.jpg') }}" width="160" height="160" alt="photo de profile"/></div>
                                     <div class="header-bio mt-3">
                                         <div data-aos="zoom-in" data-aos-delay="0">
                                             <h2 class="h1">{{ perso_full_name }}</h2>
@@ -278,55 +278,32 @@
                 <div class="shadow-1-strong bg-white my-5 p-5 d-print-none" id="portfolio">
                     <div class="portfolio-section">
                         <h2 class="h2 fw-light mb-4">Portfolio</h2>
-                        <div class="row g-0">
-                            <div class="col-md-6"><a href="https://dribbble.com/" target="_blank"><img class="img-fluid" src="{{ asset('assets/images/Portfolio-Projet-1.jpeg') }}" width="800" height="500" alt="projet1"/></a></div>
+                        {% for project in allProject %}
+                            {% if loop.index%2 != 0 %}
+                                <div class="row g-0">
+                                    <div class="col-md-6"><a href="{{ path("portfolio_details",{"id" : project.id}) }}" target="_blank"><img class="img-fluid" src="{{ asset(project.picture) }}" width="800" height="500" alt="proje{{ loop.index }}1"/></a></div>
+                            {% else %}
+                                <div class="row g-0 f-text-reverse">
+                            {% endif %}
                             <div class="col-md-6 d-flex align-items-center" data-aos="fade-left" data-aos-delay="100">
                                 <div class="m-4 mt-md-2">
-                                    <p class="text-teal text-small">FullStack / HTML / CSS / PHP - Symfony / JavaScript</p>
-                                    <h3>IDevLab 2.0 ( Web )</h3>
-                                    <p class="text-muted">Ce projet est une version améliorer de mon premier site et portfolio, elle a pour objectif de réunir l'ensemble de mes applications web et de décrire chacun de mes projet présent et future.</p>
+                                    <p class="text-teal text-small">{{ project.showSkills }}</p>
+                                    <h3>{{ project.title }} ( {{ project.categories.first.title|replace({'_':' '}) }} )</h3>
+                                    <p class="text-muted"> {{ project.description }}</p>
                                 </div>
                             </div>
+                            {% if loop.index%2 == 0 %}
+                                <div class="col-md-6"><a href="{{ path("portfolio_details",{"id" : project.id}) }}" target="_blank"><img class="img-fluid" src="{{ asset(project.picture) }}" width="800" height="500" alt="proje{{ loop.index }}1"/></a></div>
+                            {% endif %}
                         </div>
-                        <div class="row g-0 portfolio-reverse">
-                            <div class="col-md-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-                                <div class="m-4 mt-md-2 text-end">
-                                    <p class="text-teal text-small">Graphic Design / Adobe XD / PHP - Symfony - Laravel / JavaScript</p>
-                                    <h3>MyRepports ( Web )</h3>
-                                    <p class="text-muted">Une application Web me permettant d'archiver mes erreurs, de retrouver tous les bugs que j'ai pu rencontrer et les solutions que j'ai trouvées. Elle me sert aux quotidiens lors de conceptions d'application diveres. Elle était développer en Laravel a l'origine et a été refaite sur IDevlb 2.0 en Symfony</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6"><a href="https://www.behance.net/" target="_blank"><img class="img-fluid" src="{{ asset('assets/images/Portfolio-Projet-2.jpeg') }}" width="800" height="500" alt="projet2"/></a></div>
-                        </div>
-                        <div class="row g-0">
-                            <div class="col-md-6"><a href="https://dribbble.com/" target="_blank"><img class="img-fluid" src="{{ asset('assets/images/Portfolio-Projet-3.jpeg') }}" width="800" height="500" alt="projet3"/></a></div>
-                            <div class="col-md-6 d-flex align-items-center" data-aos="fade-left" data-aos-delay="100">
-                                <div class="m-4 mt-md-2">
-                                    <p class="text-teal text-small">Fullstack / HTML / CSS / Dart | Flutter / PHP - Laravel</p>
-                                    <h3>MyBugs ( Mobile )</h3>
-                                    <p class="text-muted">Cette application regroupe les mêmes fonctionnalités ( car elle partage la même API ) que "My Repports" mais permet également de visionner des solutions d'un bug depuis Stack overflow.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row g-0 portfolio-reverse">
-                        <div class="col-md-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-                            <div class="m-4 mt-md-2 text-end">
-                                <p class="text-teal text-small">PHP - Laravel | JavaScript </p>
-                                <h3>Projeo ( Web )</h3>
-                                <p class="text-muted">Created in 2021, it is still under development. It consists of organizing the management of a business by helping to create quotes, appointment schedules, customers, partner companies, invoices, to manage their time input (i.e., the number of hours worked) and benefits. The application consisted of graphs, diagrams and colour codes to make it easier to use. I loved working on this app for its technology and, because I love developing mobile apps. I also enjoyed working with my tutor on this project.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6"><a href="https://www.behance.net/" target="_blank"><img class="img-fluid" src="{{ asset('assets/images/Portfolio-Projet-4.jpeg') }}" width="800" height="500" alt="projet4"/></a></div>
-                    </div>
-                </div>
+                        {% endfor %}
                 <div class="shadow-1-strong bg-white my-5 p-5" id="references">
                     <div class="reference-section">
                         <h2 class="h2 fw-light mb-4">References</h2>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="d-flex mb-2">
-                                    <div class="avatar"><img src="{{ asset('assets/images/eric belrose.jpeg') }}" width="60" height="60" alt="photo eric belrose"/></div>
+                                    <div class="avatar"><img src="{{ asset('assets/images/Profile/eric belrose.jpeg') }}" width="60" height="60" alt="photo eric belrose"/></div>
                                     <div class="header-bio m-3 mb-0">
                                         <h3 class="h6 mb-1" data-aos="fade-left" data-aos-delay="0">Eric BELROSE</h3>
                                         <p class="text-muted text-small" data-aos="fade-left" data-aos-delay="100">Chief Executive Officer</p>
@@ -338,7 +315,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="d-flex mb-2">
-                                    <div class="avatar"><img src="{{ asset('assets/images/christophe lablancherie.jpeg') }}" width="60" height="60" alt="photo christophe lablancherie"/></div>
+                                    <div class="avatar"><img src="{{ asset('assets/images/Profile/christophe lablancherie.jpeg') }}" width="60" height="60" alt="photo christophe lablancherie"/></div>
                                     <div class="header-bio m-3 mb-0">
                                         <h3 class="h6 mb-1" data-aos="fade-left" data-aos-delay="0">Christophe Lablancherie</h3>
                                         <p class="text-muted text-small" data-aos="fade-left" data-aos-delay="100">Fondateur de Projeo</p>

@@ -17,4 +17,5 @@ abstract class PortfolioData
     const MyStuff = "MyStuff";
     const MyArchery = "MyArchery";
     const ACTA = "ACTA";
+    const BookOfGaby = "GabDesign";
 }

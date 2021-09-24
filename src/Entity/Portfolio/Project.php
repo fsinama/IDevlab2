@@ -232,6 +232,19 @@ class Project
         return $this;
     }
 
+    public function showSkills() {
+
+        $string = null;
+        $separator = " / ";
+
+        foreach ($this->Skills as $skill) {
+            $string .= $skill->getTitle();
+            $string .= $separator;
+        }
+
+        return rtrim($string, $separator);
+    }
+
     public function getPicture(): ?string
     {
         return $this->picture;
@@ -278,6 +291,18 @@ class Project
         $this->categories->removeElement($category);
 
         return $this;
+    }
+
+    public function showCategories() {
+        $string = null;
+        $separator = " / ";
+
+        foreach ($this->categories as $category) {
+            $string .= $category->getTitle();
+            $string .= $separator;
+        }
+
+        return rtrim($string, $separator);
     }
 
     /**

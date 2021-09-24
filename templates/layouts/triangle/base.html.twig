@@ -3,7 +3,7 @@
 
 {#-- Head--#}
 <head>
-    {% include layout_triangle~"head.html.twig" %}
+    {% include "layouts/triangle//head.html.twig" %}
     <title>
         {% block title %}
             {{ app_name }} | Page
@@ -19,11 +19,11 @@
 <header id="header">
 {#-- Social Space --#}
 
-    {% include layout_triangle~"social.html.twig" %}
+    {% include "layouts/triangle//social.html.twig" %}
 
 {#-- End Social Space --#}
 
-    {% include layout_triangle~"header.html.twig" %}
+    {% include "layouts/triangle//header.html.twig" %}
 
 </header>
 {#-- End Header--#}
@@ -190,7 +190,7 @@
 {#-- End Footer --#}
 
 {#-- Scripts --#}
-    {% include layout_triangle~"script.html.twig" %}
+    {% include "layouts/triangle//script.html.twig" %}
     {% block script %}{% endblock %}
 {#-- End Scripts --#}
 

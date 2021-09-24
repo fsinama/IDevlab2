@@ -33,7 +33,7 @@
                     <div class="project-name overflow">
                         <h2 class="bold">{{ project.title}} ( {{ project.categories.first.title|replace({'_':' '}) }} ) </h2>
                         <ul class="nav navbar-nav navbar-default">
-                            <li><a href="#"><i class="fa fa-clock-o"></i>February11,2014</a></li>
+                            <li><a href="#"><i class="fa fa-clock-o"></i>{{ project.startDate|format_datetime(locale='fr',pattern ="d MMM, Y") }}</a></li>
                             <li><a href="#"><i class="fa fa-tag"></i>{{ project.categories.first.title|replace({'_': ' '}) }}</a></li>
                         </ul>
                     </div>

@@ -2312,7 +2312,7 @@ span.stButton_gradient,
   vertical-align: middle;
 }
 
-.bg-404 {
+.bg-error {
   background-image: url("../images/home/tour-bg.png");
   background-repeat: repeat-x;
   background-position: center top;
@@ -2398,7 +2398,7 @@ span.stButton_gradient,
 }
 
 .bg-404 {
-  background-image: url("../images/404-bg.png");
+  background-image: url("../images/error/404-bg.png");
   background-repeat: repeat-x;
   background-position: center top;
 }
@@ -2498,7 +2498,7 @@ span.stButton_gradient,
 }
 
 #coming-soon {
-  background-image: url("../images/coming-soon-bg.png");
+  background-image: url("../images/coming-soon/coming-soon-bg.png");
   background-position: center top;
   background-repeat: repeat-x;
   padding: 40px 0;
@@ -2539,22 +2539,22 @@ span.stButton_gradient,
 }
 
 #countdown li.angle-one {
-  background-image: url(../images/coming-soon1.png);
+  background-image: url(../images/coming-soon/coming-soon1.png);
   left: 120px;
 }
 
 #countdown li.angle-two {
-  background-image: url(../images/coming-soon2.png);
+  background-image: url(../images/coming-soon/coming-soon2.png);
   left: 40px;
 }
 
 #countdown li.angle-three {
-  background-image: url(../images/coming-soon3.png);
+  background-image: url(../images/coming-soon/coming-soon3.png);
   right: 40px;
 }
 
 #countdown li.angle-four {
-  background-image: url(../images/coming-soon4.png);
+  background-image: url(../images/coming-soon/coming-soon4.png);
   right: 120px;
 }
 
