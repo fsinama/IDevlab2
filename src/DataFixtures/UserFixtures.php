@@ -41,13 +41,13 @@ class UserFixtures extends Fixture
             ->setUsername("Muirazakiiro")
             ->setFirstName("Florian")
             ->setLastName("SINAMA")
-            ->setMail("floflo97213@gmail.com")
-            ->setPassword($this->passwordEncoder->encodePassword($userDev,"royal97211"));
+            ->setMail("f.sinama972@gmail.com")
+            ->setPassword($this->passwordEncoder->encodePassword($userDev,"Roy@l97211"));
 
         $manager->persist($userDev);
 
 
-        for ($i = self::MIN_USER ; $i<self::MAX_USER ;$i++)
+        /*for ($i = self::MIN_USER ; $i<self::MAX_USER ;$i++)
         {
             $user = new User();
             $user
@@ -59,7 +59,7 @@ class UserFixtures extends Fixture
                 ->setPassword($this->passwordEncoder->encodePassword($user,$faker->password));
 
             $manager->persist($user);
-        }
+        }*/
 
         $manager->flush();
     }

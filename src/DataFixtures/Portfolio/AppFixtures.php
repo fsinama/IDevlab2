@@ -63,9 +63,9 @@ class AppFixtures extends Fixture
             ->setTitle(PortfolioData::IDevLab2)
             ->setDescription
             (
-                "Ce projet est une version améliorer de mon premier site et portfolio, 
+                "Ce projet est une version améliorée de mon premier site et portfolio, 
                 elle a pour objectif de réunir l'ensemble de mes applications web et de décrire 
-                chacun de mes projet présent et future."
+                chacun de mes projets présents et futures."
             )
             ->setStartDate(new \DateTime("2021/09/18"))
             ->setPicture("assets/images/portfolio/Portfolio-IDL2.0.jpg")
@@ -96,10 +96,10 @@ class AppFixtures extends Fixture
             ->setTitle(PortfolioData::RYB)
             ->setDescription
             (
-                "Une application Web me permettant d'archiver mes erreurs, de retrouver tous 
-                les bugs que j'ai pu rencontrer et les solutions que j'ai trouvées. Elle me sert aux 
-                quotidiens lors de conceptions d'application diveres. Elle était développer en Laravel 
-                a l'origine et a été refaite sur IDevlb 2.0 en Symfony."
+                "Cette application Web me permet d'archiver mes erreurs, de retrouver tous 
+                les bugs que j'ai pu rencontrer et les solutions que j'ai trouvées. Elle me sert au 
+                quotidien lors de conceptions d'applications diveres. Elle était développée en Laravel 
+                à l'origine et a été refaite sur IDevlb 2.0 en Symfony."
             )
             ->setStartDate(new \DateTime("2021/09/28"))
             ->setPicture("assets/images/portfolio/Portfolio-RYB.jpg")
@@ -130,7 +130,7 @@ class AppFixtures extends Fixture
             ->setTitle(PortfolioData::MyBugs)
             ->setDescription
             (
-                "Cette application regroupe les mêmes fonctionnalités ( car elle partage la même API ) 
+                "Cette application regroupe les mêmes fonctionnalités (car elle partage la même API) 
                 que \"My Repports\" mais permet également de visionner des solutions d'un bug depuis Stack overflow."
             )
             ->setStartDate(new \DateTime("2021/09/28"))
@@ -165,9 +165,7 @@ class AppFixtures extends Fixture
                 "Created in 2021, it is still under development. It consists of organizing the management of a 
                 business by helping to create quotes, appointment schedules, customers, partner companies, invoices, to 
                 manage their time input (i.e., the number of hours worked) and benefits. The application consisted of 
-                graphs, diagrams and colour codes to make it easier to use. I loved working on this app for its 
-                technology and, because I love developing mobile apps. I also enjoyed working with my tutor 
-                on this project."
+                graphs, diagrams and colour codes to make it easier to use."
             )
             ->setStartDate(new \DateTime("2021/09/28"))
             ->setPicture("assets/images/portfolio/Portfolio-Projeo.jpg")
@@ -190,7 +188,7 @@ class AppFixtures extends Fixture
 
         /* ---------- GabDesign ---------- */
 
-        $categories = [CatagoryData::SiteWeb];
+        $categories = [CatagoryData::SiteWeb,CatagoryData::Prototype];
         $skills = [SkillData::BackEnd,SkillData::FrontEnd, SkillData::PHP,
             SkillData::Symfony];
         $record = new Project();
@@ -198,14 +196,14 @@ class AppFixtures extends Fixture
             ->setTitle(PortfolioData::BookOfGaby)
             ->setDescription
             (
-                "Ce projet est un book de désigner d'espace réaliser pour une étudiante afin quelle 
+                "Ce projet est un book de désigner d'espace réalisé pour une étudiante afin qu'elle 
                 présente ses projets, compétences et son curriculum vitae. Il lui permet de se présenter de manière 
                 rapide et efficace auprès des recruteurs et reflète son talent, sa personnalité, sa rigueur et sa motivation."
             )
             ->setStartDate(new \DateTime("2021/09/24"))
             ->setPicture("assets/images/portfolio/Portfolio-GabDesign.jpg")
             ->setSecondaryPicture("assets/images/portfolio/Portfolio-GabDesign.jpg")
-            ->setGithubRepository("")
+            ->setGithubRepository("https://github.com/fsinama/GabDesign")
             ->setVersion(1.0)
             ->setIsPublished(false)
             ->setState($stateRepository->findOneBy(["title" => StateData::Afaire]));
