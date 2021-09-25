@@ -94,6 +94,33 @@ h1.f-modal__title {
 }
 
 
+.f-map-responsive{
+
+    overflow:hidden;
+
+    padding-bottom:56.25%;
+
+    position:relative;
+
+    height:0;
+
+}
+
+.f-map-responsive iframe{
+
+    left:0;
+
+    top:0;
+
+    height:100%;
+
+    width:100%;
+
+    position:absolute;
+
+}
+
+
 /* smartphone */
 @media only screen and (min-device-width: 0px) and (max-device-width: 768px) {
     .f-mobile-hide{ display: none !important; }
