@@ -14,7 +14,7 @@ class CurriculumVitaeController extends AbstractController
     public function index(ProjectRepository $repository): Response
     {
 
-        return $this->render('profile/cv.html.twig', array(
+        return $this->render('profile/curriculumVitae.html.twig', array(
             'allProject' => $repository->findBy(array(),array(),3)
         ));
     }

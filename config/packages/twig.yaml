@@ -2,8 +2,6 @@ twig:
     default_path: '%kernel.project_dir%/templates'
 
     globals:
-        layout_triangle: "layouts/triangle/"
-        assets_file: "assets"
         app_name: "IDevlab 2.0"
         app_logo: "assets/images/logo/logo.png"
         perso_full_name: "Florian Sinama"
