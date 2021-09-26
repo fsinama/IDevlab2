@@ -25,25 +25,22 @@ class ReportRepository extends ServiceEntityRepository
          $qb = $this->createQueryBuilder("r");
 
          if (!empty($title)) {
-             $qb ->andWhere("r.title LIKE :title")
+             $qb ->andwhere("r.title LIKE :title")
                  ->setParameter("title","%".$title."%");
          }
 
          if (!empty($id)) {
-             $qb = $this->createQueryBuilder("r")
-                 ->andWhere("r.id = :id")
+             $qb ->andWhere("r.id = :id")
                  ->setParameter("id",$id);
          }
 
          if(!empty($technology)) {
-             $qb = $this->createQueryBuilder("r")
-                 ->andWhere("r.technology = :id")
+             $qb ->andWhere("r.technology = :id")
                  ->setParameter("id",$technology);
          }
 
          if(!empty($type)) {
-             $qb = $this->createQueryBuilder("r")
-                 ->andWhere(":id MEMBER OF r.types")
+             $qb ->andWhere(":id MEMBER OF r.types")
                  ->setParameter("id",$type);
          }
 

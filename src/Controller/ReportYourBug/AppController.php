@@ -19,7 +19,7 @@ class AppController extends AbstractController
      * @param TypeRepository $typeRepository
      * @return Response
      */
-    #[Route("/Accueil", name:"ryb_home")]
+    #[Route("/accueil", name:"ryb_home")]
     public function homePage(ReportRepository $reportRepository,TechnologyRepository $technologyRepository,TypeRepository $typeRepository): Response
     {
         $reports = $reportRepository->findAll();
@@ -31,28 +31,6 @@ class AppController extends AbstractController
             "reportList" => $reports,
             "typesList" => $types,
             "technologyList" => $technologies
-        ]);
-    }
-
-
-    /**
-     * @param ReportRepository $repository
-     * @param Request $request
-     * @return Response
-     */
-    #[Route("/api/reportYourBug/reports", name:"ryb_api_list")]
-    public function apiListReportByTitle(ReportRepository $repository,Request $request): Response
-    {
-        $reports = $repository->findByFilter(
-            (String) $request->get("title"),
-            (int) $request->get("id"),
-            (int) $request->get("technology"),
-            (array) $request->get("types")
-        );
-
-
-        return $this->render('reportYourBug/ApiTemplates/listTemplate.html.twig', [
-            "reportList" => $reports
         ]);
     }
 }
