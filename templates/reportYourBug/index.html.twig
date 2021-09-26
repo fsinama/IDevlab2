@@ -130,7 +130,9 @@
         $(document).ready(function(){
 
             filterTechnology.select2({});
-            filterType.select2({});
+            filterType.select2({
+                placeholder:"-- Types --",
+            });
 
             $('#recherche-par-titre,#recherche-par-id,#recherche-par-technology,#recherche-par-type').on('keyup change',function (e){
 
