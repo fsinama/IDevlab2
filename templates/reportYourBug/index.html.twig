@@ -93,7 +93,7 @@
                         <h2>Cause</h2>
                         <p class="f-modal__text">{{ report.cause }}</p>
                     </div>
-                    {% if report.state %}
+                    {% if report.isResolved %}
                         <div class="f-solution">
                             <h2>Solution</h2>
                             <p class="f-modal__text">{{ report.solution }}</p>
@@ -124,38 +124,37 @@
         const filterID = $("#recherche-par-id");
         const filterTechnology = $('#recherche-par-technology');
         const filterType = $('#recherche-par-type');
+        const data = {};
 
 
         $(document).ready(function(){
 
             filterTechnology.select2({});
-            filterType.select2({});
+            filterType.select2({
+                placeholder:"-- Types --",
+            });
 
             $('#recherche-par-titre,#recherche-par-id,#recherche-par-technology,#recherche-par-type').on('keyup change',function (e){
 
                 setTimeout(function(){ },5000)
+                if(filterTitle.val() !== "") data.title = filterTitle.val();
+                if(filterID.val() !== "") data.id = filterID.val();
+                if(filterTechnology.val() !== "") data.technology = filterTechnology.val();
+                if(filterType.val() !== null) data.types = filterType.val();
 
-                if($(this).val() !== "" && (e.keyCode !==16 && e.keyCode !==17 && e.keyCode !==18)){
 
+                if(e.keyCode !==16 && e.keyCode !==17 && e.keyCode !==18){
+                    console.log($(this).val())
                     $.ajax({
                         type: 'GET',
-                        url:    '{{ path('ryb_api_list') }}',
-                        data: {
-                            title: filterTitle.val(),
-                            id: filterID.val(),
-                            technology: filterTechnology.val(),
-                            types: filterType.val()
-                        },
+                        url:    '{{ path('api_ryb_list_render') }}',
+                        data: data,
                         success: function (data){
-                            if(data !== ""){
-
-                                table.innerHTML = null;
-                                table.html(
-                                    data
-                                ).fadeIn(10);
-                                ps.update()
-
-                            }
+                            table.innerHTML = null;
+                            table.html(
+                                data
+                            ).fadeIn(10);
+                            ps.update()
                         }
                     });
                 }else{
