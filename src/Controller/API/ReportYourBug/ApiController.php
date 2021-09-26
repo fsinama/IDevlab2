@@ -17,7 +17,7 @@ class ApiController extends AbstractController
      * @param Request $request
      * @return Response
      */
-    #[Route("/reports/render", name:"api_ryb_list_render")]
+    #[Route("/reports/render", name:"api_ryb_list_render_render")]
     public function apiListReportByTitle(ReportRepository $repository,Request $request): Response
     {
         $reports = $repository->findByFilter(

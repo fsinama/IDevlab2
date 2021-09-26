@@ -147,7 +147,7 @@
                     console.log($(this).val())
                     $.ajax({
                         type: 'GET',
-                        url:    '{{ path('api_ryb_list_render') }}',
+                        url:    '{{ path('api_ryb_list_render_render') }}',
                         data: data,
                         success: function (data){
                             table.innerHTML = null;

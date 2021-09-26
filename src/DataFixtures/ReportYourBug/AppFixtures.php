@@ -42,24 +42,5 @@ class AppFixtures extends Fixture
         }
 
         $manager->flush();
-
-        /* ---------- Report ----------- */
-
-        foreach (ReportData::allReport as $value) {
-            $record = new Report();
-            $record
-                ->setTitle($value[ReportData::title])
-                ->setSolution($value[ReportData::solution])
-                ->setCause($value[ReportData::cause])
-                ->setOpenAt(new \DateTime($value[ReportData::open_at]))
-                ->setClausedAt(new \DateTime($value[ReportData::claused_at]))
-                ->setAuthor($manager->getRepository(User::class)->find(1))
-                ->setTechnology($manager->getRepository(Technology::class)->find($value[ReportData::technology_id]))
-                ->setIsResolved($value[ReportData::is_resolved]);
-
-            $manager->persist($record);
-        }
-
-        $manager->flush();
     }
 }
