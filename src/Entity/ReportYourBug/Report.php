@@ -27,19 +27,19 @@ class Report
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=500)
+     * @ORM\Column(type="text", length=500)
      */
     private $cause;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", length=500, nullable=true)
      */
     private $solution;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    private $state;
+    private $isResolved;
 
     /**
      * @ORM\Column(type="datetime")
@@ -64,6 +64,7 @@ class Report
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="reports")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $author;
 
@@ -113,14 +114,14 @@ class Report
         return $this;
     }
 
-    public function getState(): ?bool
+    public function getIsResolved(): ?bool
     {
-        return $this->state;
+        return $this->isResolved;
     }
 
-    public function setState(bool $state): self
+    public function setIsResolved(bool $isResolved): self
     {
-        $this->state = $state;
+        $this->isResolved = $isResolved;
 
         return $this;
     }
