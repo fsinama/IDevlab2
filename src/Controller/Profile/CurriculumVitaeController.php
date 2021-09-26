@@ -8,9 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/Profile')]
 class CurriculumVitaeController extends AbstractController
 {
-    #[Route("/profile/CurriculumVitae", name:"profile_cv")]
+    #[Route("/curriculumVitae", name:"profile_cv")]
     public function index(ProjectRepository $repository): Response
     {
 
