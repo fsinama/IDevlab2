@@ -15,7 +15,7 @@ class PortfolioController extends AbstractController
     #[Route("/", name:"portfolio_liste")]
     public function portfolio_list_page(ProjectRepository $projectRepository, CategoryRepository $categoryRepository): Response
     {
-        return $this->render('home/portfolioList.html.twig', [
+        return $this->render('portfolio/portfolioList.html.twig', [
             "allProjects" => $projectRepository->findAll(),
             "allCategories" => $categoryRepository->findAll(),
         ]);
@@ -24,7 +24,7 @@ class PortfolioController extends AbstractController
     #[Route("/Application/{id}", name:"portfolio_details")]
     public function portfolio_details_page(ProjectRepository $projectRepository,int $id): Response
     {
-        return $this->render('home/portfolioDetails.html.twig', [
+        return $this->render('portfolio/portfolioDetails.html.twig', [
             'project' => $projectRepository->find($id),
         ]);
     }

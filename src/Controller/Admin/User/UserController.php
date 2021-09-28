@@ -1,62 +1,55 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin\User;
 
 use App\Entity\User;
 use App\Form\AddProfileFormType;
 use App\Form\EditProfileFormType;
-use App\Form\RegistrationFormType;
 use App\Repository\UserRepository;
 use App\Security\LoginAuthenticator;
 use App\Tools\Roles;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 
 #[IsGranted(Roles::ADMIN)]
 #[Cache(expires: 'tomorrow')]
-#[Route("/admin")]
-class AdminController extends AbstractController
+#[Route("/admin/utilisateurs")]
+class UserController extends AbstractController
 {
-    private $passwordEncoder,$guardHandler,$authenticator;
-    public function __construct(UserPasswordEncoderInterface $passwordEncoder,
+
+
+    private $passwordEncoder,$guardHandler,$authenticator,$repository;
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder,UserRepository $repository,
                                 GuardAuthenticatorHandler $guardHandler, LoginAuthenticator $authenticator)
     {
         $this->passwordEncoder = $passwordEncoder;
         $this->guardHandler = $guardHandler;
         $this->authenticator = $authenticator;
+        $this->repository = $repository;
     }
 
-    #[Route('/dashboard', name: 'admin_home')]
-    public function index(): Response
-    {
-        return $this->render('admin/index.html.twig', []);
-    }
-
-    #[Route(path: ['/utilisateurs/liste/{role}'], name: 'admin_users')]
-    public function users_page(?String $role,UserRepository $repository): Response
+    #[Route(path: ['/liste/{role}'], name: 'admin_users')]
+    public function users_page(?String $role): Response
     {
 
         if ($role === str_ireplace(" ", "",Roles::SUPER_ADMIN_Display)) $role = Roles::SUPER_ADMIN_Display;
         if (empty($role)) $role = "Tous";
         return $this->render('admin/user/liste.html.twig', [
-            'users' => $repository->findAll(),
+            'users' => $this->repository->findAll(),
             'role' =>$role
         ]);
     }
 
-    #[Route('/utilisateurs/afficher/{id}', name: 'admin_user_details')]
+    #[Route('/afficher/{id}', name: 'admin_user_details')]
     public function show_user(int $id): Response
     {
-        $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+        $user = $this->repository->find($id);
         $form = $this->createForm(EditProfileFormType::class, $user);
 
         return $this->render('admin/user/details.html.twig', [
@@ -67,17 +60,17 @@ class AdminController extends AbstractController
     }
 
 
-    #[Route('/utilisateurs/modifier/{id}', name: 'admin_user_edit')]
+    #[Route('/modifier/{id}', name: 'admin_user_edit')]
     public function edit_user(int $id,Request $request): Response
     {
-        $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+        $user = $this->repository->find($id);
         $form = $this->createForm(EditProfileFormType::class, $user);
         $form->handleRequest($request);
 
         return $this->saveUser('admin/user/edit.html.twig',$user,$form,$request );
     }
 
-    #[Route('/utilisateurs/ajouter', name: 'admin_user_add')]
+    #[Route('/ajouter', name: 'admin_user_add')]
     public function add_user(Request $request): Response
     {
         $user = new User();
@@ -87,12 +80,12 @@ class AdminController extends AbstractController
         return $this->saveUser('admin/user/add.html.twig',$user,$form,$request );
     }
 
-    #[Route('/utilisateurs/delete/{id}', name: 'admin_users_delete')]
+    #[Route('/delete/{id}', name: 'admin_users_delete')]
     public function delete_user(int $id,UserRepository $repository): Response
     {
 
         $em = $this->getDoctrine()->getManager();
-        $em->remove($repository->find($id));
+        $em->remove($this->repository->find($id));
         $em->flush();
 
 

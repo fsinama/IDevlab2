@@ -11,10 +11,10 @@
 <li class="pc-item pc-hasmenu">
 	<a class="pc-link "><span class="pc-micon"><i class="fas fa-user"></i></span><span class="pc-mtext">Utilisateurs</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
 	<ul class="pc-submenu">
-		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'Tous'}) }}">Tous</a></li>
-		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'Utilisateur'}) }}">Utilisateurs</a></li>
-		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'Administrateur'}) }}">Administrateurs</a></li>
-		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'SuperAdministrateur'}) }}">Super Administrateurs</a></li>
+		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'Tous'}) }}"><i class="fas fa-users"></i> Tous</a></li>
+		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'Utilisateur'}) }}"><i class="fas fa-user-friends"></i> Utilisateurs</a></li>
+		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'Administrateur'}) }}"><i class="fas fa-user-lock"></i> Administrateurs</a></li>
+		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'SuperAdministrateur'}) }}"><i class="fas fa-user-shield"></i> Super Administrateurs</a></li>
 	</ul>
 </li>
 <li class="pc-item pc-caption">
@@ -23,23 +23,25 @@
 <li class="pc-item pc-hasmenu">
 	<a class="pc-link "><span class="pc-micon"><i class="fas fa-archive"></i></span><span class="pc-mtext">Projets</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
 	<ul class="pc-submenu">
-		<li><a class="pc-link" href="#"><i class="fas fa-list"></i> Liste</a></li>
-		<li><a class="pc-link" href="#">Ajouter</a></li>
-		<li><a class="pc-link" href="#">Modifier</a></li>
+		<li><a class="pc-link" href="{{ path('admin_portfolio_liste') }}"><i class="fas fa-list"></i> Liste</a></li>
+		<li><a class="pc-link" href="#"><i class="fas fa-plus"></i> Ajouter</a></li>
+		<li><a class="pc-link" href="#"><i class="fas fa-edit"></i> Modifier</a></li>
 	</ul>
 </li>
 <li class="pc-item pc-hasmenu">
 	<a class="pc-link "><span class="pc-micon"><i class="fas fa-th-list"></i></span><span class="pc-mtext">Catégories</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
 	<ul class="pc-submenu">
-		<li><a class="pc-link" href="#">Ajouter</a></li>
-		<li><a class="pc-link" href="#">Modifier</a></li>
+		<a class="pc-link" href="#"><i class="fas fa-list"></i> Liste</a>
+		<li><a class="pc-link" href="#"><i class="fas fa-plus"></i> Ajouter</a></li>
+		<li><a class="pc-link" href="#"><i class="fas fa-edit"></i> Modifier</a></li>
 	</ul>
 </li>
 <li class="pc-item pc-hasmenu">
 	<a class="pc-link "><span class="pc-micon"><i class="fas fa-th-list"></i></span><span class="pc-mtext">Compétences</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
 	<ul class="pc-submenu">
-		<li><a class="pc-link" href="#">Ajouter</a></li>
-		<li><a class="pc-link" href="#">Modifier</a></li>
+		<a class="pc-link" href="#"><i class="fas fa-list"></i> Liste</a>
+		<li><a class="pc-link" href="#"><i class="fas fa-plus"></i> Ajouter</a></li>
+		<li><a class="pc-link" href="#"><i class="fas fa-edit"></i> Modifier</a></li>
 	</ul>
 </li>
 <li class="pc-item pc-caption">
@@ -49,22 +51,25 @@
 <li class="pc-item pc-hasmenu">
 	<a class="pc-link "><span class="pc-micon"><i class="fas fa-archive"></i></span><span class="pc-mtext">Rapports</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
 	<ul class="pc-submenu">
-		<li><a class="pc-link" href="#">Ajouter</a></li>
-		<li><a class="pc-link" href="#">Modifier</a></li>
+		<a class="pc-link" href="#"><i class="fas fa-list"></i> Liste</a>
+		<li><a class="pc-link" href="#"><i class="fas fa-plus"></i> Ajouter</a></li>
+		<li><a class="pc-link" href="#"><i class="fas fa-edit"></i> Modifier</a></li>
 	</ul>
 </li>
 <li class="pc-item pc-hasmenu">
 	<a class="pc-link "><span class="pc-micon"><i class="fas fa-th-list"></i></span><span class="pc-mtext">Technologies</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
 	<ul class="pc-submenu">
-		<li><a class="pc-link" href="#">Ajouter</a></li>
-		<li><a class="pc-link" href="#">Modifier</a></li>
+		<a class="pc-link" href="#"><i class="fas fa-list"></i> Liste</a>
+		<li><a class="pc-link" href="#"><i class="fas fa-plus"></i> Ajouter</a></li>
+		<li><a class="pc-link" href="#"><i class="fas fa-edit"></i> Modifier</a></li>
 	</ul>
 </li>
 <li class="pc-item pc-hasmenu">
 	<a class="pc-link "><span class="pc-micon"><i class="fas fa-th-list"></i></span><span class="pc-mtext">Catégories</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
 	<ul class="pc-submenu">
-		<li><a class="pc-link" href="#">Ajouter</a></li>
-		<li><a class="pc-link" href="#">Modifier</a></li>
+		<a class="pc-link" href="#"><i class="fas fa-list"></i> Liste</a>
+		<li><a class="pc-link" href="#"><i class="fas fa-plus"></i> Ajouter</a></li>
+		<li><a class="pc-link" href="#"><i class="fas fa-edit"></i> Modifier</a></li>
 	</ul>
 </li>
 {# Others Cat

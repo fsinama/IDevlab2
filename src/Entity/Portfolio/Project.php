@@ -43,7 +43,7 @@ class Project
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $client_name;
+    private $client_name = "Pas de client pour se projet";
 
     /**
      * @ORM\Column(type="datetime")
@@ -70,12 +70,12 @@ class Project
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $picture;
+    private $picture = "default.jpg";
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $secondary_picture;
+    private $secondary_picture = "default.jpg";
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="projects")

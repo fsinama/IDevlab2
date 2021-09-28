@@ -1,0 +1,147 @@
+{% extends 'layouts/dashboard/base.html.twig' %}
+
+{% block title %}
+    {{ app_name }} | Utilisateurs
+{% endblock %}
+
+{% block content %}
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Portfolio</h5>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ path('admin_home') }}"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{ path('admin_home') }}">IDevlab2.0</a></li>
+                                <li class="breadcrumb-item"><a href="{{ path('admin_portfolio_liste') }}">Portfolio</a></li>
+                                <li class="breadcrumb-item active"><a href="{{ path('admin_portfolio_liste') }}">Projets</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Modification</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>{{ project.title }} ID : {{ project.id }}</h5>
+                        <span class="d-block m-t-5">Version : {{ project.version }}
+                        <a class="f-actions" href="{{ path('admin_portfolio_edit', {'id': project.id}) }}"><i class="fas fa-edit"></i></a>
+                        </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form_start(projectForm) }}
+                                <div class="form-group">
+                                    <label class="form-label">Nom du projet</label>
+                                    {{ form_widget(projectForm.title, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(projectForm.title) }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Client</label>
+                                    {{ form_widget(projectForm.client_name, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(projectForm.client_name) }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Date de début</label>
+                                    {{ form_widget(projectForm.start_date, {'attr': {'class': 'form-control','placeholder':"Mot de passe"}}) }}
+                                    {{ form_errors(projectForm.start_date) }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Date de fin</label>
+                                    {{ form_widget(projectForm.end_date, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(projectForm.end_date) }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Les Catégories</label>
+                                    {{ form_widget(projectForm.categories, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(projectForm.categories) }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">L'état</label>
+                                    {{ form_widget(projectForm.state, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(projectForm.state) }}
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Fonctionalitées</label>
+                                    <input value="Les fonctionalitées ne peuvent pas être ajouté pour le moment" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputEmail1">Version</label>
+                                        {{ form_widget(projectForm.version, {'attr': {'class': 'form-control'}}) }}
+                                        {{ form_errors(projectForm.version) }}
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputEmail1">Github</label>
+                                        {{ form_widget(projectForm.githubRepository, {'attr': {'class': 'form-control'}}) }}
+                                        {{ form_errors(projectForm.githubRepository) }}
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleFormControlSelect1">Rôles</label>
+                                        {{ form_widget(projectForm.isPublished, {'attr': {'class': 'form-control f-checkboxe'}}) }}
+                                        {{ form_errors(projectForm.isPublished) }}
+                                    </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Lien du projet</label>
+                                    {{ form_widget(projectForm.projectLink, {'attr': {'class': 'form-control f-checkboxe'}}) }}
+                                    {{ form_errors(projectForm.projectLink) }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Les Compétences</label>
+                                    {{ form_widget(projectForm.skills, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(projectForm.skills) }}
+                                </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputEmail1">Première image</label>
+                                        <input value="{{ project.picture }}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputEmail1">Deuxième image</label>
+                                        <input value="{{ project.secondaryPicture }}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                    </div>
+                            </div>
+                            <div class="row-cols-lg-12">
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Description</label>
+                                    {{ form_widget(projectForm.description, {'attr': {'class': 'form-control f-checkboxe'}}) }}
+                                    {{ form_errors(projectForm.description) }}
+                                </div>
+                                <a href="{{ path('admin_portfolio_edit', {'id': project.id}) }}"><button class="btn  btn-primary">Modifier</button></a>
+                            </div>
+                                {{ form_end(projectForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                    $(":input").attr("disabled", true);
+                    $(".form-control").css('background-color','#e9ecef')
+
+                $("#project_categories,#project_skills").select2({
+                });
+            })
+        </script>
+{% endblock %}

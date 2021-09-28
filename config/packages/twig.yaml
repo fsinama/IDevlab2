@@ -21,3 +21,4 @@ twig:
         link_linkedin: "https://www.linkedin.com/in/florian-sinama/"
         link_site: "https://www.idevlab.fr"
         avatar_path: "assets/images/user/"
+        portfolio_path: "assets/images/portfolio/"

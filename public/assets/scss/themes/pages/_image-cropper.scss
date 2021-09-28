@@ -1,4 +1,3 @@
-@import "../";
 /* ===================== to do page start ======================================= */
 #task-container {
     ul {
@@ -35,7 +34,7 @@
         transition: all ease-in 0.3s;
 
         &:before {
-            background: url("../../images/complete.png") no-repeat;
+            //background: url("../../images/complete.png") no-repeat;
             position: absolute;
             top: 5px;
             right: 5px;
@@ -81,7 +80,6 @@
         margin-right: 0.5em;
         position: relative;
         width: 24px;
-        margin-right: 16px;
         top: 0;
     }
 }
@@ -157,7 +155,6 @@
             margin-right: 0.5em;
             position: relative;
             width: 24px;
-            margin: 0;
             top: 5px;
 
             .cr-icon {
