@@ -1,0 +1,90 @@
+{% extends 'layouts/dashboard/base.html.twig' %}
+
+{% block title %}
+    {{ app_name }} | Utilisateurs
+{% endblock %}
+
+{% block content %}
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Utilisateurs</h5>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ path('admin_home') }}"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{ path('admin_home') }}">IDevlab2.0</a></li>
+                                <li class="breadcrumb-item active"><a href="{{ path('admin_users', {'role': role}) }}">{{ role }}{% if role != "Tous" %}s{% endif %}</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>{{ role }}{% if role != "Tous" %}s{% endif %}</h5>
+                        <span class="d-block m-t-5">
+                            Liste des
+                            {% if role == "Tous" %}
+                                 Utilisateurs
+                            {% else %}
+                                {{ role }}
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="card-body table-border-style">
+                        <a href="{{ path('admin_user_add') }}"><button class="btn  btn-primary" style="margin-bottom: 2%;">Ajouter <i class="fas fa-user-plus"></i></button></a>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Nom d'utilisateur</th>
+                                    <th>E-Mail</th>
+                                    <th>Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for user in users %}
+                                    {% if user.role == role or role == "Tous" %}
+                                        <tr>
+                                            <td>{{ user.id }}</td>
+                                            <td>{{ user.firstName }}</td>
+                                            <td>{{ user.lastName }}</td>
+                                            <td>{{ user.username }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.role }}</td>
+                                            <td class="f-actions">
+                                                {# Rules #}
+                                                {% if not user.superAdmin and not user.admin or app.user.superAdmin or app.user.id == user.id %}
+                                                    <a href="{{ path('admin_user_edit', {'id': user.id}) }}"><i class="fas fa-user-edit"></i></a>
+                                                {% endif %}
+                                                <a href="{{ path('admin_user_details',{"id":user.id}) }}"><i class="fas fa-eye"></i></a>
+                                                {% if (app.user.id != user.id and app.user.superAdmin )%}
+                                                    <a href="{{ path('admin_users_delete',{"id":user.id}) }}"><i class="fas fa-trash-alt"></i></a>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+{% endblock %}
+

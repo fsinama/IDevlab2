@@ -1,0 +1,136 @@
+<li class="pc-item pc-caption">
+	<label>Navigation</label>
+</li>
+<li>
+	<a href="{{ path('admin_home') }}" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">home</i></span><span class="pc-mtext">Tableau de bord</span></a>
+</li>
+<li class="pc-item pc-caption">
+	<label>{{ app_name }}</label>
+	<span>Gestion</span>
+</li>
+<li class="pc-item pc-hasmenu">
+	<a class="pc-link "><span class="pc-micon"><i class="fas fa-user"></i></span><span class="pc-mtext">Utilisateurs</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+	<ul class="pc-submenu">
+		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'Tous'}) }}">Tous</a></li>
+		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'Utilisateur'}) }}">Utilisateurs</a></li>
+		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'Administrateur'}) }}">Administrateurs</a></li>
+		<li><a class="pc-link" href="{{ path('admin_users', {'role': 'SuperAdministrateur'}) }}">Super Administrateurs</a></li>
+	</ul>
+</li>
+<li class="pc-item pc-caption">
+	<label>Portfolio</label>
+</li>
+<li class="pc-item pc-hasmenu">
+	<a class="pc-link "><span class="pc-micon"><i class="fas fa-archive"></i></span><span class="pc-mtext">Projets</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+	<ul class="pc-submenu">
+		<li><a class="pc-link" href="#"><i class="fas fa-list"></i> Liste</a></li>
+		<li><a class="pc-link" href="#">Ajouter</a></li>
+		<li><a class="pc-link" href="#">Modifier</a></li>
+	</ul>
+</li>
+<li class="pc-item pc-hasmenu">
+	<a class="pc-link "><span class="pc-micon"><i class="fas fa-th-list"></i></span><span class="pc-mtext">Catégories</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+	<ul class="pc-submenu">
+		<li><a class="pc-link" href="#">Ajouter</a></li>
+		<li><a class="pc-link" href="#">Modifier</a></li>
+	</ul>
+</li>
+<li class="pc-item pc-hasmenu">
+	<a class="pc-link "><span class="pc-micon"><i class="fas fa-th-list"></i></span><span class="pc-mtext">Compétences</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+	<ul class="pc-submenu">
+		<li><a class="pc-link" href="#">Ajouter</a></li>
+		<li><a class="pc-link" href="#">Modifier</a></li>
+	</ul>
+</li>
+<li class="pc-item pc-caption">
+	<label>Report Your Bugs</label>
+	<span>Gestion</span>
+</li>
+<li class="pc-item pc-hasmenu">
+	<a class="pc-link "><span class="pc-micon"><i class="fas fa-archive"></i></span><span class="pc-mtext">Rapports</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+	<ul class="pc-submenu">
+		<li><a class="pc-link" href="#">Ajouter</a></li>
+		<li><a class="pc-link" href="#">Modifier</a></li>
+	</ul>
+</li>
+<li class="pc-item pc-hasmenu">
+	<a class="pc-link "><span class="pc-micon"><i class="fas fa-th-list"></i></span><span class="pc-mtext">Technologies</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+	<ul class="pc-submenu">
+		<li><a class="pc-link" href="#">Ajouter</a></li>
+		<li><a class="pc-link" href="#">Modifier</a></li>
+	</ul>
+</li>
+<li class="pc-item pc-hasmenu">
+	<a class="pc-link "><span class="pc-micon"><i class="fas fa-th-list"></i></span><span class="pc-mtext">Catégories</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+	<ul class="pc-submenu">
+		<li><a class="pc-link" href="#">Ajouter</a></li>
+		<li><a class="pc-link" href="#">Modifier</a></li>
+	</ul>
+</li>
+{# Others Cat
+	<li class="pc-item pc-caption">
+	<label>Report Your Bugs</label>
+	<span>Gestion</span>
+</li>
+<li class="pc-item pc-caption">
+	<label>Chart & Maps</label>
+	<span>Tones of readymade charts</span>
+</li>
+<li>
+	<a href="chart-apex.html" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">bubble_chart</i></span><span class="pc-mtext">Chart</span></a>
+</li>
+<li>
+	<a href="map-google.html" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">my_location</i></span><span class="pc-mtext">Maps</span></a>
+</li>
+<li class="pc-item pc-caption">
+	<label>Pages</label>
+	<span>Redymade Pages</span>
+</li>
+<li class="pc-item pc-hasmenu">
+	<a href="#!" class="pc-link"><span class="pc-micon"><i class="material-icons-two-tone">https</i></span><span class="pc-mtext">Authentication</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+	<ul class="pc-submenu">
+		<li><a class="pc-link" href="auth-signup.html" target="_blank">Sign up</a></li>
+		<li><a class="pc-link" href="auth-signin.html" target="_blank">Sign in</a></li>
+	</ul>
+</li>
+<li class="pc-item pc-caption">
+	<label>Other</label>
+	<span>Extra more things</span>
+</li>
+<li class="pc-item pc-hasmenu">
+	<a href="#!" class="pc-link"><span class="pc-micon"><i class="material-icons-two-tone">list_alt</i></span><span class="pc-mtext">Menu levels</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+	<ul class="pc-submenu">
+		<li><a class="pc-link" href="#!">Menu Level 2.1</a></li>
+		<li class="pc-item pc-hasmenu">
+			<a href="#!" class="pc-link">Menu level 2.2<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+			<ul class="pc-submenu">
+				<li><a class="pc-link" href="#!">Menu level 3.1</a></li>
+				<li><a class="pc-link" href="#!">Menu level 3.2</a></li>
+				<li class="pc-item pc-hasmenu">
+					<a href="#!" class="pc-link">Menu level 3.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+					<ul class="pc-submenu">
+						<li><a class="pc-link" href="#!">Menu level 4.1</a></li>
+						<li><a class="pc-link" href="#!">Menu level 4.2</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li class="pc-item pc-hasmenu">
+			<a href="#!" class="pc-link">Menu level 2.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+			<ul class="pc-submenu">
+				<li><a class="pc-link" href="#!">Menu level 3.1</a></li>
+				<li><a class="pc-link" href="#!">Menu level 3.2</a></li>
+				<li class="pc-item pc-hasmenu">
+					<a href="#!" class="pc-link">Menu level 3.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+					<ul class="pc-submenu">
+						<li><a class="pc-link" href="#!">Menu level 4.1</a></li>
+						<li><a class="pc-link" href="#!">Menu level 4.2</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</li>
+<li><a href="sample-page.html" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">storefront</i></span><span class="pc-mtext">Sample page</span></a></li>
+
+#}

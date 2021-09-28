@@ -1,0 +1,94 @@
+{% extends 'layouts/dashboard/base.html.twig' %}
+
+{% block title %}
+    {{ app_name }} | Utilisateurs
+{% endblock %}
+
+{% block content %}
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Utilisateurs</h5>
+                            </div>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ path('admin_home') }}"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{ path('admin_home') }}">IDevlab2.0</a></li>
+                                <li class="breadcrumb-item"><a href="{{ path('admin_users', {'role': 'Utilisateurs'}) }}">Utilisateurs</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Ajout</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Nouvel Utilisateur</h5>
+                        <span class="d-block m-t-5">Aouter un nouvel utilisateur</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form_start(editUserForm) }}
+                                <div class="form-group">
+                                    <label class="form-label">Nom d'utilisateur</label>
+                                    {{ form_widget(editUserForm.username, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(editUserForm.username) }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Adresse email</label>
+                                    {{ form_widget(editUserForm.email, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_errors(editUserForm.email) }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Mot de passe</label>
+                                    {{ form_widget(editUserForm.plainPassword.first, {'attr': {'class': 'form-control','placeholder':"Mot de passe"}}) }}
+                                    {{ form_errors(editUserForm.plainPassword.first) }}
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="exampleInputEmail1">Confirmation du mot de passe</label>
+                                    {{ form_widget(editUserForm.plainPassword.second, {'attr': {'class': 'form-control','placeholder':"Confirmation du mot de passe"}}) }}
+                                    {{ form_errors(editUserForm.plainPassword.second) }}
+                                </div>
+                                <button type="submit" class="btn  btn-primary">Ajouter</button>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputEmail1">Prénom</label>
+                                        {{ form_widget(editUserForm.firstName, {'attr': {'class': 'form-control'}}) }}
+                                        {{ form_errors(editUserForm.firstName) }}
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputEmail1">Nom</label>
+                                        {{ form_widget(editUserForm.lastName, {'attr': {'class': 'form-control'}}) }}
+                                        {{ form_errors(editUserForm.lastName) }}
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleFormControlSelect1">Rôles</label>
+                                        {{ form_widget(editUserForm.roles, {'attr': {'class': 'form-control f-checkboxe'}}) }}
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="exampleInputEmail1">Avatar</label>
+                                        <input value="{{ user.avatar }}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled>
+                                    </div>
+                                {{ form_end(editUserForm) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,42 +1,96 @@
-{% extends 'layouts/triangle/base.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
 
-{% block title %}Log in!{% endblock %}
+<head>
 
-{% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <title>{{ app_name }} | Connexion </title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="DashboardKit is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+    <meta name="keywords" content="DashboardKit, Dashboard Kit, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Free Bootstrap Admin Template">
+    <meta name="author" content="DashboardKit ">
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
+    <!-- font css -->
+    <link rel="stylesheet" href="{{ asset('assets/fonts/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/material.css') }}">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" id="main-style-link">
+
+
+</head>
+
+<body class="auth-bg-img">
+
+<!-- [ auth-signin ] start -->
+<div class="auth-wrapper">
+    <div class="auth-content">
+        <div class="card">
+            <div class="row align-items-center text-center">
+                <div class="col-md-12">
+                    <form method="post">
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+                        <div class="card-body">
+                            <a href="{{ path('app_home') }}"><img src="{{ asset('assets/images/logo/logo.png') }}" alt="" class="img-fluid mb-4"></a>
+                            <h4 class="mb-3 f-w-400">Connexion</h4>
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+                            {% if app.user %}
+                                <div class="mb-3">
+                                    Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+                                </div>
+                            {% endif %}
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i data-feather="mail"></i></span>
+                                <input name="username" type="text" class="form-control" value="{{ last_username }}" placeholder="Nom d'utilisateur ou Adresse e-mail">
+                            </div>
+                            <div class="input-group mb-4">
+                                <span class="input-group-text"><i data-feather="lock"></i></span>
+                                <input name="password" type="password" class="form-control" placeholder="Mot de passe">
+                            </div>
+                            <div class="form-group text-left mt-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="_remember_me" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Enregistrer les informations d'identification
+                                    </label>
+                                </div>
+                            </div>
+                            <button class="btn btn-block btn-primary mb-4">Connexion</button>
+                            <p class="mb-0 text-muted">Vous n'avez pas de compte ? <a href="{{ path('app_register') }}" class="f-w-400"><br/>Inscrivez-vous</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-    {% endif %}
+    </div>
+</div>
+<!-- [ auth-signin ] end -->
+</body>
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUsername">Username</label>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
+<!-- Required Js -->
+<script src="{{ asset('assets/js/vendor-all.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/feather.min.js') }}"></script>
+<script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+</body>
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
-{% endblock %}
+</html>

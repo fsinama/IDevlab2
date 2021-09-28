@@ -21,7 +21,7 @@ class UserFixtures extends Fixture
 
 
     private $passwordEncoder;
-    private const MAX_USER = 4 , MIN_USER = 0;
+    private const MAX_USER = 40 , MIN_USER = 0;
 
 
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
@@ -37,11 +37,12 @@ class UserFixtures extends Fixture
 
         $userDev = new User();
         $userDev
-            ->setRoles(array(Roles::SUPER_ADMIN))
+            ->setRoles(Roles::allGranted)
             ->setUsername("Muirazakiiro")
             ->setFirstName("Florian")
             ->setLastName("SINAMA")
-            ->setMail("f.sinama972@gmail.com")
+            ->setEmail("f.sinama972@gmail.com")
+            ->setAvatar("avatar.jpg")
             ->setPassword($this->passwordEncoder->encodePassword($userDev,"Roy@l97211"));
 
         $manager->persist($userDev);
@@ -55,8 +56,9 @@ class UserFixtures extends Fixture
                 ->setUsername($faker->userName)
                 ->setFirstName($faker->firstName)
                 ->setLastName($faker->lastName)
-                ->setMail($faker->email)
-                ->setPassword($this->passwordEncoder->encodePassword($user,$faker->password));
+                ->setEmail($faker->email)
+                ->setAvatar("assets/images/logo/logo.png")
+                ->setPassword($this->passwordEncoder->encodePassword($user,"password"));
 
             $manager->persist($user);
         }*/

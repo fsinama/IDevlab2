@@ -4,15 +4,18 @@ namespace App\Entity;
 
 use App\Entity\ReportYourBug\Report;
 use App\Repository\UserRepository;
+use App\Tools\Roles;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
+ * @UniqueEntity(fields={"username"}, message="Il existe déjà un compte avec ce nom d'utilisateur")
+ * @UniqueEntity(fields={"email"}, message="Il existe déjà un compte avec cette adresse mail")
  * @ORM\Table(name="idevlab_user")
  */
 class User implements UserInterface
@@ -42,24 +45,29 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=30,nullable=true)
      */
     private $firstName;
 
     /**
-     * @ORM\Column(type="string", length=40)
+     * @ORM\Column(type="string", length=40,nullable=true)
      */
     private $lastName;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
-    private $mail;
+    private $email;
 
     /**
      * @ORM\OneToMany(targetEntity=Report::class, mappedBy="author")
      */
     private $reports;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $avatar = "default.jpg";
 
     public function __construct()
     {
@@ -99,6 +107,30 @@ class User implements UserInterface
 
         return array_unique($roles);
     }
+
+    public function getRole(): String
+    {
+        $role = 'Utilisateur';
+        if (in_array(Roles::SUPER_ADMIN,$this->roles)) {
+            $role = 'Super Administrateur';
+        } else if (in_array(Roles::ADMIN,$this->roles)) {
+            $role = 'Administrateur';
+        }
+
+        return $role;
+    }
+
+    public function isSuperAdmin(): bool
+    {
+        return in_array(Roles::SUPER_ADMIN,$this->roles);
+    }
+
+    public function isAdmin(): bool
+    {
+        if ($this->isSuperAdmin()) return true;
+        return in_array(Roles::ADMIN,$this->roles);
+    }
+
 
     public function setRoles(array $roles): self
     {
@@ -166,14 +198,19 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getMail(): ?string
+    public function getFullName(): ?string
     {
-        return $this->mail;
+        return $this->firstName . " " . $this->lastName;
     }
 
-    public function setMail(string $mail): self
+    public function getEmail(): ?string
     {
-        $this->mail = $mail;
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
@@ -204,6 +241,18 @@ class User implements UserInterface
                 $report->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }

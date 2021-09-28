@@ -20,3 +20,4 @@ twig:
         link_twitter: "#"
         link_linkedin: "https://www.linkedin.com/in/florian-sinama/"
         link_site: "https://www.idevlab.fr"
+        avatar_path: "assets/images/user/"

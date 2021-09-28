@@ -1,21 +1,90 @@
+
 <!DOCTYPE html>
+<html lang="fr">
 
-<title>Register</title>
+<head>
 
-{% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+    <title>{{ app_name }} | Inscription </title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="DashboardKit is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+    <meta name="keywords" content="DashboardKit, Dashboard Kit, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Free Bootstrap Admin Template">
+    <meta name="author" content="DashboardKit ">
 
-    <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+    <!-- Favicon icon -->
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-{% endblock %}
+    <!-- font css -->
+    <link rel="stylesheet" href="{{ asset('assets/fonts/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/fonts/material.css') }}">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" id="main-style-link">
+
+
+</head>
+
+<body>
+
+<!-- [ auth-signup ] start -->
+<div class="auth-wrapper">
+    <div class="auth-content">
+        <div class="card">
+            <div class="row align-items-center text-center">
+                <div class="col-md-12">
+                    {{ form_start(registrationForm) }}
+                        <div class="card-body">
+                            <a href="{{ path('app_home') }}"><img src="{{ asset('assets/images/logo/logo.png') }}" alt="" class="img-fluid mb-4"></a>
+                            <h4 class="mb-3 f-w-400">Inscription</h4>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i data-feather="user"></i></span>
+                                {{ form_widget(registrationForm.username, {'attr': {'class': 'form-control','placeholder':"Nom d'utilisateur"}}) }}
+                                {{ form_errors(registrationForm.username) }}
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i data-feather="mail"></i></span>
+                                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control','placeholder':"Adresse mail"}}) }}
+                                {{ form_errors(registrationForm.email) }}
+                            </div>
+                            <div class="input-group mb-4">
+                                <span class="input-group-text"><i data-feather="lock"></i></span>
+                                {{ form_widget(registrationForm.plainPassword.first, {'attr': {'class': 'form-control','placeholder':"Mot de passe"}}) }}
+                                {{ form_errors(registrationForm.plainPassword.first) }}
+                            </div>
+                            <div class="input-group mb-4">
+                                <span class="input-group-text"><i data-feather="lock"></i></span>
+                                {{ form_widget(registrationForm.plainPassword.second, {'attr': {'class': 'form-control','placeholder':"Confirmation du mot de passe"}}) }}
+                                {{ form_errors(registrationForm.plainPassword.second) }}
+                            </div>
+                            <button class="btn btn-primary btn-block mb-4">Inscription</button>
+                            <p class="mb-2">Vous avez déjà un compte ? <a href="{{ path('app_login') }}" class="f-w-400">Connexion</a></p>
+                        </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ auth-signup ] end -->
+
+</body>
+
+<!-- Required Js -->
+<script src="{{ asset('assets/js/vendor-all.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/feather.min.js') }}"></script>
+<script src="{{ asset('assets/js/pcoded.min.js') }}"></script>
+
+</body>
+
+</html>

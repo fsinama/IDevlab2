@@ -9,11 +9,11 @@ security:
         app_user_provider:
             entity:
                 class: App\Entity\User
-                property: username
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
         main:
             anonymous: true
             lazy: true
@@ -24,7 +24,9 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                # target: app_any_route
+                target: admin_home
+            form_login:
+                use_referer: true
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
