@@ -49,10 +49,21 @@ class Controller extends AbstractController
 
         }
 
-        return $this->render('admin/portfolio/edit.html.twig', [
-            'project' => $project,
-            'projectForm' =>$form->createView()
-        ]);
+        return $this->redirectToRoute('admin_portfolio_show', array('id' => $id));
+    }
+
+    #[Route('/ajouter/{id}', name: 'admin_portfolio_add')]
+    public function add(int $id,Request $request): Response
+    {
+        $project = new Project();
+        $form = $this->createForm(ProjectType::class, $project);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+        }
+
+        return $this->redirectToRoute('admin_portfolio_show', array('id' => $project->getId()));
     }
 
     #[Route('/details/{id}', name: 'admin_portfolio_show')]
@@ -70,5 +81,15 @@ class Controller extends AbstractController
             'project' => $project,
             'projectForm' =>$form->createView()
         ]);
+    }
+
+    #[Route('/supprimer/{id}', name: 'admin_portfolio_delete')]
+    public function delete(int $id,ProjectRepository $repository): Response
+    {
+        $project = $repository->find($id);
+        $this->getDoctrine()->getManager()->remove($project);
+
+
+        return $this->redirectToRoute('admin_portfolio_liste');
     }
 }

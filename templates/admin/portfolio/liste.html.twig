@@ -68,7 +68,7 @@
                                         <td class="f-actions">
                                             <a href="{{ path('admin_portfolio_edit', {'id': project.id}) }}"><i class="fas fa-edit"></i></a>
                                             <a href="{{ path('admin_portfolio_show', {'id': project.id}) }}"><i class="fas fa-eye"></i></a>
-                                            <a href="#"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="{{ path('admin_portfolio_delete', {'id': project.id}) }}"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                 {% endfor %}

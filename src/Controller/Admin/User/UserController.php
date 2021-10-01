@@ -80,7 +80,7 @@ class UserController extends AbstractController
         return $this->saveUser('admin/user/add.html.twig',$user,$form,$request );
     }
 
-    #[Route('/delete/{id}', name: 'admin_users_delete')]
+    #[Route('/supprimer/{id}', name: 'admin_users_delete')]
     public function delete_user(int $id,UserRepository $repository): Response
     {
 
