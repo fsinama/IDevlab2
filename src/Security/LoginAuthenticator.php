@@ -72,7 +72,7 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Il existe déjà un compte avec cette identifiant');
+            throw new CustomUserMessageAuthenticationException("Il n'existe aucun compte avec ces identifiants");
         }
 
         return $user;

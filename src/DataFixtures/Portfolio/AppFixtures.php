@@ -186,14 +186,14 @@ class AppFixtures extends Fixture
 
         $manager->persist($record);
 
-        /* ---------- GabDesign ---------- */
+        /* ---------- Aostart ---------- */
 
         $categories = [CatagoryData::SiteWeb,CatagoryData::Prototype];
         $skills = [SkillData::BackEnd,SkillData::FrontEnd, SkillData::PHP,
             SkillData::Symfony];
         $record = new Project();
         $record
-            ->setTitle(PortfolioData::BookOfGaby)
+            ->setTitle(PortfolioData::Aostart)
             ->setDescription
             (
                 "Ce projet est un book de désigner d'espace réalisé pour une étudiante afin qu'elle 
@@ -201,9 +201,9 @@ class AppFixtures extends Fixture
                 rapide et efficace auprès des recruteurs et reflète son talent, sa personnalité, sa rigueur et sa motivation."
             )
             ->setStartDate(new \DateTime("2021/09/24"))
-            ->setPicture("assets/images/portfolio/Portfolio-GabDesign.jpg")
-            ->setSecondaryPicture("assets/images/portfolio/Portfolio-GabDesign.jpg")
-            ->setGithubRepository("https://github.com/fsinama/GabDesign")
+            ->setPicture("assets/images/portfolio/Portfolio-Aostart.jpg")
+            ->setSecondaryPicture("assets/images/portfolio/Portfolio-Aostart.jpg")
+            ->setGithubRepository("https://github.com/fsinama/Aostart")
             ->setVersion(1.0)
             ->setIsPublished(false)
             ->setState($stateRepository->findOneBy(["title" => StateData::Afaire]));

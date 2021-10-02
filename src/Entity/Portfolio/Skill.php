@@ -26,7 +26,7 @@ class Skill
     private $title;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="Skill")
+     * @ORM\ManyToMany(targetEntity=Project::class, mappedBy="Skills")
      */
     private $projects;
 

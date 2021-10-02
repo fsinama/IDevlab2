@@ -46,10 +46,13 @@ class Controller extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            return $this->redirectToRoute('admin_portfolio_show', array('id' => $id));
         }
 
-        return $this->redirectToRoute('admin_portfolio_show', array('id' => $id));
+        return $this->render('admin/portfolio/edit.html.twig',array(
+            'projectForm' => $form->createView(),
+            'project' => $project
+        ));
     }
 
     #[Route('/ajouter/{id}', name: 'admin_portfolio_add')]
@@ -60,10 +63,12 @@ class Controller extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            return $this->redirectToRoute('admin_portfolio_show', array('id' => $project->getId()));
         }
 
-        return $this->redirectToRoute('admin_portfolio_show', array('id' => $project->getId()));
+        return $this->render('admin/portfolio/edit.html.twig',array(
+            'projectForm' => $form->createView()
+        ));
     }
 
     #[Route('/details/{id}', name: 'admin_portfolio_show')]
@@ -87,7 +92,9 @@ class Controller extends AbstractController
     public function delete(int $id,ProjectRepository $repository): Response
     {
         $project = $repository->find($id);
-        $this->getDoctrine()->getManager()->remove($project);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($project);
+        $em->flush();
 
 
         return $this->redirectToRoute('admin_portfolio_liste');
